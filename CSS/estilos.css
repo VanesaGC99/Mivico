@@ -1,0 +1,137 @@
+/*Pone el fondo de la página con un color*/
+html{
+    background-color:rgb(187, 137, 121);
+}
+
+/*Cambia la tipografia a una de google*/
+.cambiaFuente{
+    font-family: 'Caveat', cursive;
+}
+
+/*Pone el espacio al 100*/
+.imagenInicio{
+    width: 99.5%;
+    border: solid 4px rgb(78, 49, 40);
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    border-radius: 10px;
+}
+
+        /*BARRA DE NAVEGACION*/
+
+/*Pone el contenido de la etiqueta nav flexible*/
+nav{
+    display: flex;
+    margin-top: 2%;
+}
+
+/*Pone flexible el contenido, alinea al inicio de la página, un tamaño de un 60% y alinea el texto al centro*/
+.navegacion_categoria{
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    text-align: center;
+}
+
+/*Pone flexible el contenido, alinea al final de la página, un tamaño de un 40% y alinea el texto al centro*/
+.navegacion_usuario{
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+    text-align: center;
+}
+
+/*Pone un tamaño al 20%, un margen interior de 10 pixeles, un borde de 2 px y un fondo de color marrón*/
+.navegacion_categoria > div {
+    width: 20%;
+    padding: 10px;
+    border: solid 2px rgb(78, 49, 40);
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+/*Pone un tamaño al 20%, un margen interior de 10 pixeles, un borde de 2 px y un fondo de color marrón*/
+.navegacion_usuario> div{
+    width: 20%;
+    padding: 10px;
+    border: solid 2px rgb(78, 49, 40);
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+/*pone en linea la imagen y el texto y le ponemos espacio en medio*/
+.carrito{
+    display: flex;
+    justify-content: space-around;
+}
+
+/*Quita la decoración a los enlaces y pone la letra en negrita*/
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+/*Le aplica el color marron a los enlaces*/
+a:link{
+    color:rgb(78, 49, 40);
+}
+
+/*Se mantiene en marron aún habiendolo visitado*/
+a:visited{
+    color: rgb(78, 49, 40);
+}
+
+/*Cambia a verde cuando el raton esta encima del enlace*/
+a:hover{
+    color: green;
+}
+        /*ZONA SELECT*/
+/*Pone un inline-block para establecer un ancho en el elemento y le ponemos un tamaño al 60%*/
+select{
+    display: inline-block;
+    width: 60%;
+}
+
+/*Pone centrado el titulo*/
+h1{
+    text-align: center;
+}
+/*Pone un margen al inicio del 5%, lo pone flexible y lo centra*/
+.centrarContenido{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+/*pone un borde marron de 2 pixeles solido, pone un fondo blanco al formulario, pone color marron a la letra, un margen interno de 3*/
+.formulario{
+    border: 4px rgb(78, 49, 40) solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    background-color: whitesmoke;
+    color: rgb(78, 49, 40);
+    padding: 3%;
+}
+
+/*Pone un inline-block para establecer un ancho en el elemento y le ponemos un tamaño al 45%*/
+label, input{
+    display: inline-block;
+    width: 45%;
+}
+
+/*le pone un borde color marron de 2 pixeles solido y un radio en el borde de 5 pixeles*/
+input{
+    border: rgb(78, 49, 40) 2px solid;
+    border-radius: 5px;
+}
+
+/*hece que ocupe todo el formulario*/
+.botonFormulario{
+    width: 100%;
+    color: rgb(78, 49, 40);
+    font-weight: bold;
+}
+
+.productos{
+    column-count: 3;
+    text-align: justify;
+}

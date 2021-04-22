@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estilos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.goolgeapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <title>Mivico</title>
+</head>
+<body>
+    <header>
+        <img src="../IMAGE/fondo.png" alt="Imagen inicio" class="imagenInicio">
+    </header>
+    <nav>
+        <div class="navegacion_categoria">
+            <div><a href="../index.html">Inicio</a></div>
+        </div>
+    </nav>
+    <section class="centrarContenido">
+        <div class="formulario">
+            <div>
+                <h1>Iniciar Sesión</h1>
+            </div>
+            <hr>
+            <div>
+                <form action="Login.php" method="POST" id="formulario">
+                    <label>Usuario: </label>
+                    <input type="text" name="usuario" id="usuario" autofocus>
+                    <br><br>
+                    <label>Password: </label>
+                    <input type="password" name="password" id="password">
+                    <br><br>
+                    <input type="submit" value="Iniciar sesión" class="botonFormulario">
+                </form>
+            </div>
+            <hr>
+            <div>
+                <p><a href="">He olvidado mi contraseña</a></p>
+                <p>No tengo cuenta, <a href="Registrarse/Registrarse.html">registrarme</a></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <p><a href="">Nosotros</a></p>
+        </div>
+        <div>
+            <p><a href="">Sitio Web</a></p>
+        </div>
+    </footer>
+</body>
+</html>
