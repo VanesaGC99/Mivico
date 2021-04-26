@@ -8,7 +8,6 @@
     }
 
     //Iniciar sesion
-
     function iniciarSesion($usuario){
         session_id($usuario["DNI"]);
         session_start();
@@ -18,4 +17,21 @@
             echo "$atributo : $valor <br>";
         }
     }
+
+    //Insertar datos de productos
+    function insertar(){
+
+    }
+
+    //Eliminar datos de productos
+    function eliminar(){
+
+    }
+
+    //Modificar datos de productos
+    function modificar(){
+
+    }
+
+    
 ?>

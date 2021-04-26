@@ -34,21 +34,6 @@
     </nav>
     <section>
         <div class="aparienciaSeccion catalogo">
-            <div class="busqueda">
-                <p>Buscar producto: </p>
-                <select name="filtro">
-                    <option value="Champú">Champú</option>
-                    <option value="Jabón corporal">Jabón corporal</option>
-                    <option value="Jabón facial">Jabón facial</option>
-                    <option value="Mascarilla">Mascarilla</option>
-                    <option value="Balsamo">Bálsamo</option>
-                    <option value="Desmaquillante">Desmaquillante</option>
-                    <option value="Acondicionador">Acondicionador</option>
-                    <option value="Aceite">Aceite</option>
-                    <option value="Colonia">Colonia</option>
-                    <option value="Desodorante">Desodorante</option>
-                </select>
-            </div>
             <?php
 
                 $productos= "Select * from Producto";
@@ -63,7 +48,6 @@
                     echo "<h3>".$fila['Nombre'] ."</h3>";
                     echo "<p>".$fila['Precio']."</p>";
                     echo "<p><a href=''>Info.</a></p>";
-                    echo "<a href='Carrito.php'><button>Añadir al carro</button></a>";
                     echo "</div>";
                 }
                 

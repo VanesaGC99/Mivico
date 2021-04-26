@@ -1,11 +1,13 @@
 /*Pone el fondo de la página con un color*/
 html{
-    background-color:rgb(187, 137, 121);
+    background-color:rgb(199, 160, 146);
+
 }
 
 /*Cambia la tipografia a una de google*/
 .cambiaFuente{
-    font-family: 'Caveat', cursive;
+    font-family: 'Caveat', cursive;    background-color:rgb(187, 137, 121);
+
 }
 
 /*Pone el espacio al 100*/
@@ -59,6 +61,10 @@ nav{
     border-radius: 10px;
     margin-left: 5px;
 }
+/*Cambia el color del boton y la letra*/
+.seleccionado{
+    color:green;
+}
 
 /*pone en linea la imagen y el texto y le ponemos espacio en medio*/
 .carrito{
@@ -87,14 +93,35 @@ a:hover{
 }
         /*ZONA SELECT*/
 /*Pone un inline-block para establecer un ancho en el elemento y le ponemos un tamaño al 60%*/
-select{
-    display: inline-block;
-    width: 60%;
+section{
+    display: flex;
+    justify-content: center;
+    margin: 3%;
 }
 
+.aparienciaSeccion{
+    border: 4px rgb(78, 49, 40) solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 3%;
+}
 /*Pone centrado el titulo*/
 h1{
     text-align: center;
+}
+
+/*Cambia el color al titulo nivel uno y cambia su tamaño de fuente*/
+.inicioH1{
+    color: rgb(78, 49, 40);
+    font-size: 250%;
+}
+/*Cambia el color al titulo nivel dos y cambia su tamaño de fuente*/
+.inicioH2{
+    color: rgb(78, 49, 40);
+    font-size: 150%;
+    text-align: center;
+    
 }
 /*Pone un margen al inicio del 5%, lo pone flexible y lo centra*/
 .centrarContenido{
@@ -131,7 +158,29 @@ input{
     font-weight: bold;
 }
 
+/*Divide en 3 columnas*/
+.catalogo{
+    width: 70%;
+    display: table;
+}
+.busqueda{
+    display: block;
+    margin: 3%;
+    display:flex;
+    height: 2%;
+}
+
+
 .productos{
-    column-count: 3;
-    text-align: justify;
+    float: left;
+    width: 30%;
+    margin: 5px;
+    border: 4px rgb(78, 49, 40) solid;
+    color: rgb(78, 49, 40);
+    text-align: center;
+    padding: 10px;
+}
+.productos > img{
+    border: 4px rgb(78, 49, 40) solid;
+
 }

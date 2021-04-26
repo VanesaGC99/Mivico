@@ -9,8 +9,6 @@
     //Recoger datos
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
-    
-
 
     //Hacer consulta
 
