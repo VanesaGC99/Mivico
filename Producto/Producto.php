@@ -37,6 +37,7 @@
             <div class="busqueda">
                 <p>Buscar producto: </p>
                 <select name="filtro">
+                    <option value="ninguna">Busqueda</option>
                     <option value="Champú">Champú</option>
                     <option value="Jabón corporal">Jabón corporal</option>
                     <option value="Jabón facial">Jabón facial</option>

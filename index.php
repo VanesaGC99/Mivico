@@ -28,16 +28,26 @@
         </nav>
         <section >
             <div class="aparienciaSeccion">
-            <h1 class = "inicioH1">Bienvenido a Mivico</h1>
-            <h2 class = "inicioH2">En esta página web podras encontrar productos naturales respetuosos con el medio ambiente</h2>
-            <?php
-                foreach(arrayImagenes($conexion) as $valor){
-                    echo "array $valor <br>";
-                }
-                foreach(cuatroImagenes(arrayImagenes($conexion)) as $valor){
-                    echo "cuatro array " .$valor. "<br>";
-                }
-            ?>
+                <h1 class = "inicioH1">Bienvenido a Mivico</h1>
+                <h2 class = "inicioH2">En esta página web podras encontrar productos naturales respetuosos con el medio ambiente</h2>
+                <br><br>
+                <div class="slidershow">
+                    <div class="left">
+                        <img src="IMAGE/slider/flecha-izquierda.png" width="50" >
+                    </div>
+                    <div id="slider">
+                        <?php
+                            //Tamaño de las imagenes del slider
+                            $tamaño= "100%";
+                            foreach(arrayImagenes($conexion) as $valor){
+                                echo "<img src='IMAGE/$valor' width=$tamaño>";
+                            }
+                        ?>
+                    </div>
+                    <div class="right">
+                        <img src="IMAGE/slider/flecha-derecha.png" width="50" >
+                    </div>
+                </div>
             </div>
         </section>
     </body>
@@ -45,35 +55,19 @@
     </html>
 
 <?php
-    //Funcion para hacer un array de las imagenes de la base de datos
+    //Funcion para hacer un array con 4 imagenes aleatorias de la base de datos
+    
     function arrayImagenes($conexion){
         $arrayImagenes = [];
-        $consulta = "Select * from Producto";
+        $consulta = "Select * from Producto ORDER BY RAND() LIMIT 4";
         $imagenes = mysqli_query($conexion, $consulta);
-        $i =0;
+        $i = 0;
         
-        while($fila = mysqli_fetch_array($imagenes)){
-            
+        while($fila = mysqli_fetch_array($imagenes)){    
             $arrayImagenes[$i] = $fila['Imagen'];
             $i++;
        }
 
        return $arrayImagenes;
-    }
-
-    function cuatroImagenes($arrayImagenes){
-        $cuatroImagenes = [];
-        $posicionesElegibles = [];
-
-        for($i = 0; $i < count($arrayImagenes); $i++){
-            $posicionesElegibles[$i]=$i;
-        }
-        for($i = 0; $i < 2; $i++){
-            $r = floor(rand() * count($posicionesElegibles));
-            $cuatroImagenes =array_push($cuatroImagenes, $arrayImagenes[$posicionesElegibles[$r]]);
-            $posicionesElegibles = array_splice($posicionesElegibles, $r, 1);
-        }
-        
-        return $cuatroImagenes;
     }
 ?>
