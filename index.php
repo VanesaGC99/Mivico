@@ -21,6 +21,7 @@
         <nav>
             <div class="navegacion_categoria">
                 <div class="seleccionado"><a>Inicio</a></div>
+                <div><a href="Producto/Producto.php">Catálogo</a></div>
             </div>
             <div class="navegacion_usuario">
                 <div><a href="IniciarSesion/IniciarSesion.html">Iniciar Sesión</a></div>
@@ -28,13 +29,15 @@
         </nav>
         <section >
             <div class="aparienciaSeccion">
-                <h1 class = "inicioH1">Bienvenido a Mivico</h1>
+                <h1 class = "inicioH1">¡Bienvenido a Mivico!</h1>
                 <h2 class = "inicioH2">En esta página web podras encontrar productos naturales respetuosos con el medio ambiente</h2>
                 <br><br>
                 <div class="slidershow">
+
                     <div class="left">
                         <img src="IMAGE/slider/flecha-izquierda.png" width="50" >
                     </div>
+
                     <div id="slider">
                         <?php
                             //Tamaño de las imagenes del slider
@@ -44,14 +47,21 @@
                             }
                         ?>
                     </div>
+
                     <div class="right">
                         <img src="IMAGE/slider/flecha-derecha.png" width="50" >
                     </div>
+
                 </div>
             </div>
         </section>
+        <footer>
+            <div><a>Nosotros</a></div>
+            <div><a>Contacto</a></div>
+            <div><a>Sitio Web</a></div>
+        </footer>
+        <script src='JS/Slider.js'></script>
     </body>
-    <script src='JS/Slider.js'></script>
     </html>
 
 <?php
