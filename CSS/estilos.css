@@ -99,6 +99,16 @@ section{
     margin: 3%;
 }
 
+/*Le pone un borde, una sombra, un fondo en blanco ahumado, un radio de 10px, un margen interior de 1%, pone flexible y alineado al centro*/
+footer{
+    border: 4px rgb(78, 49, 40) solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+}
 /*Le pone un borde solido de 4 pixeles, una sombra, un fondo color blanco ahumado, un radio de 10px y un margen interior de 3%*/
 .aparienciaSeccion{
     border: 4px rgb(78, 49, 40) solid;
@@ -190,18 +200,39 @@ input{
     border-radius: 10px;
 }
 
-/*Le da una posicion, le pone un tamaño, con un margen interno, un color al fondo, un borde azul solido de 4 pixeles, una sombra azul y un margen 0 auto*/
-#slider{
-    position:relative;
-    width: 30%;
-    height: 30%;
-    padding: 10px;
-    border: 4px rgb(78, 49, 40) solid;
-    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
-    margin: 0 auto;
+/*pone el tamaño al 100%, lo pone flexible y alineado al centro*/
+.slidershow{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
+/*Le da una posicion, le pone un tamaño, con un margen interno, un color al fondo, un borde azul solido de 4 pixeles, una sombra azul y un margen izquierdo y derecho del 6%*/
+#slider{
+    width: 30%;
+    height: 30%;
+    padding: 5px;
+    border: 4px rgb(78, 49, 40) solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    border-radius: 10px;
+    margin-left: 6%;
+    margin-right: 6%;
+    
+}
+
+/*pone las flechas felxibles, alineadas al centro y el cursor pointer*/
 .left, .right{
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+/*lo alinea a la izquierda*/
+.left{
+    left: 10px;
+}
+
+/*lo alinea a la izquierda*/
+.right{
+    right: 10px;
 }
