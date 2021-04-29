@@ -28,7 +28,7 @@
             </div>
         </nav>
         <section >
-            <div class="aparienciaSeccion">
+            <div class="apariencia">
                 <h1 class = "inicioH1">¡Bienvenido a Mivico!</h1>
                 <h2 class = "inicioH2">En esta página web podras encontrar productos naturales respetuosos con el medio ambiente</h2>
                 <br><br>
@@ -56,7 +56,7 @@
             </div>
         </section>
         <footer>
-            <div><a>Nosotros</a></div>
+            <div><a href="Nosotros.html">Nosotros</a></div>
             <div><a>Contacto</a></div>
             <div><a>Sitio Web</a></div>
         </footer>

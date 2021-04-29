@@ -26,16 +26,16 @@
     <nav>
         <div class="navegacion_categoria">
             <div><a href="../Usuario/Home.html">Inicio</a></div>
-            <div><a href="">Productos</a></div>
+            <div class="seleccionado"><a>Productos</a></div>
         </div>
         <div class="navegacion_usuario">
             <div><a href="../IniciarSesion/IniciarSesion.html">Iniciar Sesión</a></div>
         </div>
     </nav>
     <section>
-        <div class="aparienciaSeccion catalogo">
+        <div class="apariencia catalogo">
             <div class="busqueda">
-                <p>Buscar producto: </p>
+                <span>Buscar producto: </span>
                 <select name="filtro">
                     <option value="ninguna">Busqueda</option>
                     <option value="Champú">Champú</option>
@@ -64,7 +64,7 @@
                     echo "<h3>".$fila['Nombre'] ."</h3>";
                     echo "<p>".$fila['Precio']."</p>";
                     echo "<p><a href=''>Info.</a></p>";
-                    echo "<a href='Carrito.php'><button>Añadir al carro</button></a>";
+                    echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
                     echo "</div>";
                 }
                 

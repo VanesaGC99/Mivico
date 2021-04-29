@@ -10,6 +10,11 @@ $(document).ready(function(){
     $('.left img').click(prevImg);
     $('.right img').click(nextImg);
 
+    //Cambio automático de imagen
+    setInterval(function(){
+        nextImg();
+    },4000);
+
     //----FUNCIONES----
     function nextImg(){
         if(posImg >= imgItems){

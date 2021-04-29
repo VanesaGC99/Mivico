@@ -33,7 +33,7 @@
         </div>
     </nav>
     <section>
-        <div class="aparienciaSeccion catalogo">
+        <div class="apariencia catalogo">
             <?php
 
                 $productos= "Select * from Producto";

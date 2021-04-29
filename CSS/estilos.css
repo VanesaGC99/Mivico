@@ -109,8 +109,12 @@ footer{
     display: flex;
     justify-content: center;
 }
+
+footer > div{
+    padding-left: 3%;
+}
 /*Le pone un borde solido de 4 pixeles, una sombra, un fondo color blanco ahumado, un radio de 10px y un margen interior de 3%*/
-.aparienciaSeccion{
+.apariencia{
     border: 4px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     background-color: whitesmoke;
@@ -162,7 +166,7 @@ input{
     border-radius: 5px;
 }
 
-/*hece que ocupe todo el formulario*/
+/*hece que ocupe todo el formulario, cambia el color de la letra y pone la letra en negrita*/
 .botonFormulario{
     width: 100%;
     color: rgb(78, 49, 40);
@@ -180,6 +184,7 @@ input{
     display: block;
     margin: 3%;
 }
+
 /*Crea la cuadricula de los productos*/
 /*Alinea los productos a la izquierda, le pone un ancho del 30%, un margen superior de 10 pixeles,
  margen inferior de 10 px, un borde solido de 4px cambia las letras a color marron, alinea el texto al centro
@@ -187,13 +192,13 @@ input{
 .productos{
     float: left;
     width: 30%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 5px;
     border: 4px rgb(78, 49, 40) solid;
     color: rgb(78, 49, 40);
     text-align: center;
     padding: 10px;
 }
+
 /*le pone un borde solido de 4px y un radio de 10px*/
 .productos > img{
     border: 4px rgb(78, 49, 40) solid;
@@ -235,4 +240,10 @@ input{
 /*lo alinea a la izquierda*/
 .right{
     right: 10px;
+}
+
+/*Pone flexible la zona de Nosotros*/
+
+.flexible{
+    display: flex;
 }
