@@ -187,14 +187,15 @@ input{
 
 /*Crea la cuadricula de los productos*/
 /*Alinea los productos a la izquierda, le pone un ancho del 30%, un margen superior de 10 pixeles,
- margen inferior de 10 px, un borde solido de 4px cambia las letras a color marron, alinea el texto al centro
- y pone un margen interior de 10px*/
+ margen inferior de 10 px, un borde solido de 4px cambia las letras a color marron, alinea el texto al centro,
+redondea los border y pone un margen interior de 10px*/
 .productos{
     float: left;
     width: 30%;
     margin: 5px;
     border: 4px rgb(78, 49, 40) solid;
     color: rgb(78, 49, 40);
+    border-radius: 10px;
     text-align: center;
     padding: 10px;
 }
@@ -243,7 +244,14 @@ input{
 }
 
 /*Pone flexible la zona de Nosotros*/
-
-.flexible{
+.nosotros{
+    width: 60%;
     display: flex;
+    margin: 5%;
+}
+
+.nosotros > div{
+    width: 60%;
+    display: block;
+    word-wrap: break-word;
 }

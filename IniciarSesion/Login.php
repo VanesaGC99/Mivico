@@ -19,11 +19,11 @@
 
         if($fila['Rol']== "usuario" || $fila['Rol']== "Usuario"){
             iniciarSesion($fila);
-            header('Location: ../Usuario/Home.html');
+            header('Location: ../Usuario/Home.php');
         }
         else if($fila['Rol']== "administrador" || $fila['Rol']== "Administrador"){
             iniciarSesion($fila);
-            header('Location: ../Administrador/Home.html');
+            header('Location: ../Administrador/Home.php');
         }
     }
     else{
