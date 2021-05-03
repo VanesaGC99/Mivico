@@ -58,7 +58,7 @@
         </section>
         <footer>
             <div><a href="Nosotros.html">Nosotros</a></div>
-            <div><a>Contacto</a></div>
+            <div><a href="Contacto.html">Contacto</a></div>
             <div><a>Sitio Web</a></div>
         </footer>
         <script src='JS/Slider.js'></script>

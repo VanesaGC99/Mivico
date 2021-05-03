@@ -13,7 +13,7 @@ $(document).ready(function(){
     //Cambio automático de imagen
     setInterval(function(){
         nextImg();
-    },4000);
+    },3000);
 
     //----FUNCIONES----
     function nextImg(){
