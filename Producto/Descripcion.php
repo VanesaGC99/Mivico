@@ -33,22 +33,20 @@
         </div>
     </nav>
     <section>
+        <p><a href="Producto.php">Catálogo</a> / <a href="">Descripción</p>
         <div class="apariencia catalogo">
             <?php
 
-                $productos= "Select * from Producto";
+                $productos= "Select * from Producto Where idProducto = ''";
 
                 $query = mysqli_query($conexion, $productos);
+                $producto = mysqli_fetch_assoc();
 
                 while($fila = mysqli_fetch_array($query)){
-                    $imagen = $fila['Imagen'];
-                    $porcentaje = "60%";
-                    echo "<div class='productos'>";
-                    echo " <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>";
-                    echo "<h3>".$fila['Nombre'] ."</h3>";
-                    echo "<p>".$fila['Precio']."</p>";
-                    echo "<p><a href=''>Info.</a></p>";
-                    echo "</div>";
+                    
+                    echo "<div>";
+                    echo "<p></p>"
+                    echo "<div>";
                 }
                 
             ?>

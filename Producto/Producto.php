@@ -64,7 +64,7 @@
                     echo "<h3>".$fila['Nombre'] ."</h3>";
                     echo "<p>".$fila['Precio']."</p>";
                     echo "<p><a href=''>Info.</a></p>";
-                    echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
+                    echo "<a href='Carrito.php?id=$fila['']><button disabled='true'>Añadir al carro</button></a>";
                     echo "</div>";
                 }
                 
