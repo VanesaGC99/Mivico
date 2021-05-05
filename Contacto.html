@@ -14,17 +14,11 @@
     </header>
     <nav>
         <div class="navegacion_categoria">
-            <div><a href="index.php">Inicio</a></div>
-            <div><a href="Producto/Producto.php">Productos</a></div>
+            <div class="seleccionado"><a>Inicio</a></div>
+            <div><a href="Producto/Producto.php">Catálogo</a></div>
         </div>
         <div class="navegacion_usuario">
-            <div><a href="">Perfil</a></div>
-            <div>
-                <a href="Carrito/Carrito.php" class="carrito">
-                    <img src="../IMAGE/shopping-cart-solid.svg" width="30px">
-                    Carrito
-                </a>
-            </div>
+            <div><a href="IniciarSesion/IniciarSesion.html">Iniciar Sesión</a></div>
         </div>
     </nav>
     <section>
@@ -34,17 +28,30 @@
                 <p>En <strong>Mivico</strong> disponemos de un correo el cual se revisa diariamente, puedes enviarnos tu opinión o tu</p>
                 <p><strong>Correo electronico: </strong> contacto.mivico@gmail.com</p>
                 <p>Aquí puedes enviar un mensaje a nuestro correo, al que te responderemos lo antes posible:</p>
-                <form action="enviarCorreo.php" method="POST">
-                    <label>Tu correo: </label>
-                    <input type="text" name="correoCliente" id="correoCliente">
-                    <br>
-                    <label>Asunto: </label>
-                    <select name="asunto">
-                        <option value="atencionCliente"
-                    </select>
+                <div>
+                <br>
+                <form action="PHP/Funciones/envioCorreo.php" method="POST">
+                    <fieldset>
+                        <label for="correoCliente">Tu correo: </label>
+                        <input type="text" name="correoCliente" id="correoCliente">
+                        <br>
+                        <label>Asunto: </label>
+                        <select name="asunto">
+                            <option value="atencionCliente">Atencion al cliente</option>
+                            <option value="problema">Problema</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <textarea name="contenido" rows="10" cols="50"></textarea>
+                    </fieldset>
                 </form>
+            </div>
             </div>
         </div>
     </section>
+    <footer>
+        <div><a href="Nosotros.html">Nosotros</a></div>
+        <div><a href="Contacto.html">Contacto</a></div>
+        <div><a>Sitio Web</a></div>
+    </footer>
 </body>
 </html>
