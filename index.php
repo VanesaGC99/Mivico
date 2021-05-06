@@ -17,7 +17,7 @@
     </head>
     <body>
         <header>
-            <img src="IMAGE/fondo.png" alt="Imagen inicio" class="imagenInicio">
+            <img src="IMAGE/imagenCorporativa.png" alt="Imagen inicio" class="imagenInicio">
         </header>
         <nav>
             <div class="navegacion_categoria">
@@ -59,7 +59,7 @@
         <footer>
             <div><a href="Nosotros.html">Nosotros</a></div>
             <div><a href="Contacto.html">Contacto</a></div>
-            <div><a>Sitio Web</a></div>
+            <div><a href="">Sitio Web</a></div>
         </footer>
         <script src='JS/Slider.js'></script>
     </body>

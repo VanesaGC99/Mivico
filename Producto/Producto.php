@@ -21,7 +21,7 @@
 </head>
 <body>
     <header>
-        <img src="../IMAGE/fondo.png" alt="Imagen inicio" class="imagenInicio">
+        <img src="../IMAGE/imagenCorporativa.png" alt="Imagen inicio" class="imagenInicio">
     </header>
     <nav>
         <div class="navegacion_categoria">
@@ -64,7 +64,7 @@
                     echo "<h3>".$fila['Nombre'] ."</h3>";
                     echo "<p>".$fila['Precio']."</p>";
                     echo "<p><a href=''>Info.</a></p>";
-                    echo "<a href='Carrito.php?id=$fila['']><button disabled='true'>Añadir al carro</button></a>";
+                    echo "<a href='Carrito.php?id=><button disabled='true'>Añadir al carro</button></a>";
                     echo "</div>";
                 }
                 
