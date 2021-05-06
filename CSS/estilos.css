@@ -1,12 +1,6 @@
-/*Pone el fondo de la página con un color*/
+/*Pone el imagenCorporativa de la página con un color*/
 html{
     background-color:rgb(199, 164, 152);
-
-}
-
-/*Cambia la tipografia a una de google*/
-.cambiaFuente{
-    font-family: 'Caveat', cursive;    background-color:rgb(187, 137, 121);
 
 }
 
@@ -42,7 +36,7 @@ nav{
     text-align: center;
 }
 
-/*Pone un tamaño al 20%, un margen interior de 10 pixeles, un borde de 2 px y un fondo de color marrón*/
+/*Pone un tamaño al 20%, un margen interior de 10 pixeles, un borde de 2 px y un imagenCorporativa de color marrón*/
 .navegacion_categoria > div {
     width: 20%;
     padding: 10px;
@@ -52,7 +46,7 @@ nav{
     margin-left: 5px;
 }
 
-/*Pone un tamaño al 20%, un margen interior de 10 pixeles, un borde de 2 px y un fondo de color marrón*/
+/*Pone un tamaño al 20%, un margen interior de 10 pixeles, un borde de 2 px y un imagenCorporativa de color marrón*/
 .navegacion_usuario> div{
     width: 20%;
     padding: 10px;
@@ -99,7 +93,7 @@ section{
     margin: 3%;
 }
 
-/*Le pone un borde, una sombra, un fondo en blanco ahumado, un radio de 10px, un margen interior de 1%, pone flexible y alineado al centro*/
+/*Le pone un borde, una sombra, un imagenCorporativa en blanco ahumado, un radio de 10px, un margen interior de 1%, pone flexible y alineado al centro*/
 footer{
     border: 4px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
@@ -113,7 +107,7 @@ footer{
 footer > div{
     padding-left: 3%;
 }
-/*Le pone un borde solido de 4 pixeles, una sombra, un fondo color blanco ahumado, un radio de 10px y un margen interior de 3%*/
+/*Le pone un borde solido de 4 pixeles, una sombra, un imagenCorporativa color blanco ahumado, un radio de 10px y un margen interior de 3%*/
 .apariencia{
     border: 4px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
@@ -145,7 +139,7 @@ h1{
     justify-content: center;
 }
 
-/*pone un borde marron de 2 pixeles solido, pone un fondo blanco al formulario, pone color marron a la letra, un margen interno de 3*/
+/*pone un borde marron de 2 pixeles solido, pone un imagenCorporativa blanco al formulario, pone color marron a la letra, un margen interno de 3*/
 .formulario{
     border: 4px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
@@ -213,7 +207,7 @@ redondea los border y pone un margen interior de 10px*/
     justify-content: center;
 }
 
-/*Le da una posicion, le pone un tamaño, con un margen interno, un color al fondo, un borde azul solido de 4 pixeles, una sombra azul y un margen izquierdo y derecho del 6%*/
+/*Le da una posicion, le pone un tamaño, con un margen interno, un color al imagenCorporativa, un borde azul solido de 4 pixeles, una sombra azul y un margen izquierdo y derecho del 6%*/
 #slider{
     width: 30%;
     height: 30%;
