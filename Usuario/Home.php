@@ -16,8 +16,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/estilos.css">
-    <link href="https://fonts.goolgeapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script href="JS/jquery-3.6.0.min.js"></script>
     <title>Mivico</title>
 </head>
 <body>
@@ -68,9 +68,9 @@
             </div>
         </section>
         <footer>
-            <div><a href="Nosotros.html">Nosotros</a></div>
-            <div><a>Contacto</a></div>
-            <div><a>Sitio Web</a></div>
+            <div><a href="../Nosotros.html">Nosotros</a></div>
+            <div><a href="../Contacto.html">Contacto</a></div>
+            <div><a href="../SitioWeb.html">Sitio Web</a></div>
         </footer>
         <script src='../JS/Slider.js'></script>
 </body>

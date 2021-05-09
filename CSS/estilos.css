@@ -139,6 +139,7 @@ h1{
     justify-content: center;
 }
 
+/*-----------FORMULARIOS----------*/
 /*pone un borde marron de 2 pixeles solido, pone un imagenCorporativa blanco al formulario, pone color marron a la letra, un margen interno de 3*/
 .formulario{
     border: 4px rgb(78, 49, 40) solid;
@@ -167,10 +168,26 @@ input{
     font-weight: bold;
 }
 
+/*-----------CATÁLOGO DE PRODUCTOS---------*/
 /*Divide en 3 columnas*/
 .catalogo{
     width: 70%;
     display: table;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.contenedor > a{
+    width: 50%;
+    padding-top: 3px;
+}
+
+.contenedor > button{
+    width: 50%;
 }
 
 /*Pone el elemento como bloque y le pone un margen del 3%*/
@@ -200,6 +217,7 @@ redondea los border y pone un margen interior de 10px*/
     border-radius: 10px;
 }
 
+/*---------SLIDER---------*/
 /*pone el tamaño al 100%, lo pone flexible y alineado al centro*/
 .slidershow{
     width: 100%;
@@ -243,7 +261,7 @@ redondea los border y pone un margen interior de 10px*/
     display: flex;
     margin: 5%;
 }
-
+/*Le da tamaño al div y lo pone en bloque*/
 .nosotros > div{
     width: 60%;
     display: block;
