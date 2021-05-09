@@ -10,7 +10,6 @@ $(document).ready(function(){
 
             success:function(data){
                 var text = data['text'];
-                var count = data['likes'];
                 
                 $("#"+id).html(text);
             }

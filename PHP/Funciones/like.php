@@ -21,7 +21,7 @@
     }
 
 
-    if(mysqli_num_rows($likes)){
+    if($likes){
         $megusta = "<img src='../IMAGE/likes/like.png' width=10%>Me gusta";
     }else{
         $megusta = "<img src='../IMAGE/likes/dislike.png' width=10%>No me gusta";
