@@ -35,23 +35,27 @@
     <section>
         <div class="apariencia catalogo">
             <div class="busqueda">
-                <span>Buscar producto: </span>
-                <select name="filtro">
-                    <option value="ninguna">Busqueda</option>
-                    <option value="Champú">Champú</option>
-                    <option value="Jabón corporal">Jabón corporal</option>
-                    <option value="Jabón facial">Jabón facial</option>
-                    <option value="Mascarilla">Mascarilla</option>
-                    <option value="Balsamo">Bálsamo</option>
-                    <option value="Desmaquillante">Desmaquillante</option>
-                    <option value="Acondicionador">Acondicionador</option>
-                    <option value="Aceite">Aceite</option>
-                    <option value="Colonia">Colonia</option>
-                    <option value="Desodorante">Desodorante</option>
-                </select>
+                <span>Buscar por categoría: </span>
+                <form method= "POST">
+                    <select name="filtro" id="filtro">
+                        <option value="ninguna">Busqueda</option>
+                        <option value="Champú">Champú</option>
+                        <option value="Jabón corporal">Jabón corporal</option>
+                        <option value="Jabón facial">Jabón facial</option>
+                        <option value="Mascarilla">Mascarilla</option>
+                        <option value="Balsamo">Bálsamo</option>
+                        <option value="Desmaquillante">Desmaquillante</option>
+                        <option value="Acondicionador">Acondicionador</option>
+                        <option value="Aceite">Aceite</option>
+                        <option value="Colonia">Colonia</option>
+                        <option value="Desodorante">Desodorante</option>
+                    </select>
+                </form>
             </div>
             <?php
 
+                $select = $_POST['valor'];
+                echo $select;
                 $productos= "Select * from Producto";
 
                 $query = mysqli_query($conexion, $productos);
@@ -65,12 +69,12 @@
                     echo "<p>".$fila['Precio']."</p>";
                     
                     $likes = mysqli_query($conexion, "Select * from Likes where idProducto = '".$fila['idProducto']."' and DNI = '".$_SESSION['DNI']."'");
-            
+        
                     if(mysqli_num_rows($likes) == 0){
-                        echo "<div class='contenedor'><a href=''>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
+                        echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
                     }
                     else{
-                        echo "<div class='contenedor'><a href=''>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
+                        echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
                     }
                     
                     echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
@@ -85,6 +89,7 @@
             <div><a href="../Contacto.html">Contacto</a></div>
             <div><a href="../SitioWeb.html">Sitio Web</a></div>
         </footer>
-    <script src='../JS/Likes.js'></script>
+    <script type='text/javascript' src='../JS/Likes.js'></script>
+    
 </body>
 </html>

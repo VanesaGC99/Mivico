@@ -8,6 +8,8 @@
     //Conexion a la base de datos
     require '../PHP/ConectarBD.php';
     $conexion = conectar();
+
+    $id =$_POST['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,15 +28,16 @@
     <nav>
         <div class="navegacion_categoria">
             <div><a href="../Usuario/Home.html">Inicio</a></div>
-            <div><a href="">Productos</a></div>
+            <div><a href="Producto.php">Productos</a></div>
         </div>
         <div class="navegacion_usuario">
             <div><a href="../IniciarSesion/IniciarSesion.html">Iniciar Sesión</a></div>
         </div>
     </nav>
     <section>
-        <p><a href="Producto.php">Catálogo</a> / <a href="">Descripción</p>
+        
         <div class="apariencia catalogo">
+        <p><a href="Producto.php">Catálogo</a> / <a href="">Descripción</p>
             <?php
 
                 $productos= "Select * from Producto Where idProducto = ''";
