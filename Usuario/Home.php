@@ -30,7 +30,7 @@
             <div><a href="../Producto/Producto.php">Catálogo</a></div>
         </div>
         <div class="navegacion_usuario">
-            <div><a href="">Perfil</a></div>
+            <div><a href="Perfil/Perfil.php"><?php echo $_SESSION['Usuario']; ?></a></div>
             <div>
                 <a href="Carrito/Carrito.php" class="carrito">
                     <img src="../IMAGE/shopping-cart-solid.svg" width="30px">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </nav>
-    <section >
+    <section>
             <div class="apariencia">
                 <h1 class = "inicioH1">¡Bienvenido a Mivico!</h1>
                 <h2 class = "inicioH2">En esta página web podras encontrar productos naturales respetuosos con el medio ambiente</h2>
@@ -68,9 +68,9 @@
             </div>
         </section>
         <footer>
-            <div><a href="../Nosotros.html">Nosotros</a></div>
-            <div><a href="../Contacto.html">Contacto</a></div>
-            <div><a href="../SitioWeb.html">Sitio Web</a></div>
+            <div><a href="../Nosotros.php">Nosotros</a></div>
+            <div><a href="../Contacto.php">Contacto</a></div>
+            <div><a href="../SitioWeb.php">Sitio Web</a></div>
         </footer>
         <script src='../JS/Slider.js'></script>
 </body>

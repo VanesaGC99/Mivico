@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estilos.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.goolgeapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <title>Mivico</title>
 </head>
 <body>
@@ -13,7 +12,7 @@
         <img src="IMAGE/imagenCorporativa.png" alt="Imagen inicio" class="imagenInicio">
     </header>
     <nav>
-        <?php
+    <?php
         //Cambia la barra de navegación seegún sea usuario, administrador o un cliente no logueado.
             session_start();
 
@@ -39,7 +38,7 @@
                     </div>
                     
                     <div class='navegacion_usuario'>
-                        <div><a href='Administrador/Gestion/Gestion.php'>Gestión</a></div>
+                        <div><a href=''>Gestión</a></div>
                     </div>";
                 }
                 
@@ -55,21 +54,39 @@
         <div class="apariencia flexible">
             <div><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="100%"></div>
             <div>
-            <h2>¿Que es Mivico?</h2>
-            <p>El nombre de <b>Mivico</b> proviene de <i>Mi vida eco</i>.</p>
-            <p>Esta empresa se dedica a la creación y venta de productos naturales respetuosos con el medio ambiente y cero residuos, 
-                tambien se pretende conseguir que sean accesibles a todo tipo de cliente</p>
-            <h2>Misión</h2>
-            <p>La misión de Mivico es proporcionar a las personas productos, con los que poder satisfacer los cuidados de su piel y cabello,
-                que sean más sostenibles, libres de plásticos y con ingredientes naturales, por ende más saludable.</p>
-            <h2>Visión</h2>
-            <p>Como empresa queremos que todo tipo de cliente con todo tipo de bolsillo pueda tener acceso a nuestros productos y que estos 
-                puedan solventar las necesidades de cada tipo de piel o cabello</p>
+                <p>En <strong>Mivico</strong> disponemos de un correo el cual se revisa diariamente, puedes enviarnos tu opinión o tu</p>
+                <p><strong>Correo electronico: </strong> contacto.mivico@gmail.com</p>
+                <p>Aquí puedes enviar un mensaje a nuestro correo, al que te responderemos lo antes posible:</p>
+                <div>
+                <br>
+                <form action="PHP/Funciones/envioCorreo.php" method="POST">
+                    <fieldset>
+                        <label for="correoCliente">Tu correo: </label>
+                        <?php
+                        if(isset($_SESSION['Rol'])){
+                            echo "<input type='text' name='correoCliente' id='correoCliente' value = '".$_SESSION['Email']."'>";
+                        }
+                        else{
+                            echo "<input type='text' name='correoCliente' id='correoCliente'>";
+                        }
+                        ?>
+                        <br>
+                        <label>Asunto: </label>
+                        <select name="asunto">
+                            <option value="atencionCliente">Atencion al cliente</option>
+                            <option value="problema">Problema</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <textarea name="contenido" rows="10" cols="50"></textarea>
+                    </fieldset>
+                </form>
+            </div>
             </div>
         </div>
+        
     </section>
     <footer>
-        <div class="seleccionado"><a href="Nosotros.php">Nosotros</a></div>
+        <div><a href="Nosotros.php">Nosotros</a></div>
         <div><a href="Contacto.php">Contacto</a></div>
         <div><a href="SitioWeb.php">Sitio Web</a></div>
     </footer>

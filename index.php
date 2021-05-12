@@ -55,9 +55,9 @@
             </div>
         </section>
         <footer>
-            <div><a href="Nosotros.html">Nosotros</a></div>
-            <div><a href="Contacto.html">Contacto</a></div>
-            <div><a href="SitioWeb.html">Sitio Web</a></div>
+            <div><a href="Nosotros.php">Nosotros</a></div>
+            <div><a href="Contacto.php">Contacto</a></div>
+            <div><a href="SitioWeb.php">Sitio Web</a></div>
         </footer>
         <script src='JS/Slider.js'></script>
     </body>

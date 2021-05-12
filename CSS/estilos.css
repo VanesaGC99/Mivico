@@ -66,6 +66,8 @@ nav{
     justify-content: space-around;
 }
 
+/*-------Enlaces de toda la página-------*/
+
 /*Quita la decoración a los enlaces y pone la letra en negrita*/
 a{
     text-decoration: none;
@@ -85,6 +87,7 @@ a:visited{
 a:hover{
     color: green;
 }
+
         /*ZONA SELECT*/
 /*Pone un inline-block para establecer un ancho en el elemento y le ponemos un tamaño al 60%*/
 section{
@@ -111,6 +114,7 @@ footer > div{
 .apariencia{
     border: 4px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    color: rgb(78, 49, 40);
     background-color: whitesmoke;
     border-radius: 10px;
     padding: 3%;
@@ -196,6 +200,17 @@ input{
     margin: 3%;
 }
 
+/*Le pone un tamaño al 50%, un margen interior, un margen exterior, un radio de 5 px,
+un borde de 2px marrón solido, la letra en color marron y la fuente en negrita*/
+.aparienciaBoton{
+    width: 50%;
+    padding: 5px;
+    margin: 2%;
+    border-radius: 5px;
+    border: rgb(78, 49, 40) 2px solid;
+    color: rgb(78, 49, 40);
+    font-weight: bold;
+}
 /*Crea la cuadricula de los productos*/
 /*Alinea los productos a la izquierda, le pone un ancho del 30%, un margen superior de 10 pixeles,
  margen inferior de 10 px, un borde solido de 4px cambia las letras a color marron, alinea el texto al centro,
@@ -255,15 +270,46 @@ redondea los border y pone un margen interior de 10px*/
     right: 10px;
 }
 
-/*Pone flexible la zona de Nosotros*/
-.nosotros{
+/*Pone flexible la zona*/
+.flexible{
     width: 60%;
     display: flex;
     margin: 5%;
 }
 /*Le da tamaño al div y lo pone en bloque*/
-.nosotros > div{
+.flexible > div{
     width: 60%;
     display: block;
     
 }
+
+/*-------PERFIL------*/
+/*Pone un tamaño al menu, un margen de 1%, un margen interior de 1% y un borde derecho marron de 3px solido*/
+.flexible > .menu{
+    width: 30%;
+    margin: 1%;
+    display: block;
+    padding-right: 1%;
+    border-right: rgb(78, 49, 40) 3px solid;
+}
+
+/*Centra el texto, pone un borde marron de 3px solido, una sombra marron y un margen interior de 3%*/
+.menu > p{
+    text-align: center;
+    border: rgb(78, 49, 40) 3px solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    padding: 3%;
+}
+/*Le pone un tamaño al contenido del perfil, un margen de 1%, un margen interior de 2%*/
+.flexible > .contenidoPerfil{
+    width: 60%;
+    margin: 1%;
+    padding: 2%;
+    display: block;
+}
+
+hr{
+    border-bottom: rgb(78, 49, 40) 2px solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+}
+

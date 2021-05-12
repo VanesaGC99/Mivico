@@ -1,9 +1,4 @@
 <?php
-    session_start();
-
-    if(empty($_SESSION['DNI'])){
-        header("Location: ../IniciarSesion/IniciarSesion.html");
-    }
 
     //Conexion a la base de datos
     require '../PHP/ConectarBD.php';
@@ -24,21 +19,52 @@
         <img src="../IMAGE/imagenCorporativa.png" alt="Imagen inicio" class="imagenInicio">
     </header>
     <nav>
-        <div class="navegacion_categoria">
-            <div><a href="../Usuario/Home.php">Inicio</a></div>
-            <div class="seleccionado"><a>Catálogo</a></div>
-        </div>
-        <div class="navegacion_usuario">
-            <div><a href="../IniciarSesion/IniciarSesion.html">Iniciar Sesión</a></div>
-        </div>
+        <?php
+        //Cambia la barra de navegación seegún sea usuario, administrador o un cliente no logueado.
+            session_start();
+
+            if(isset($_SESSION['Rol'])){
+                if($_SESSION['Rol'] == 'Usuario'){
+                    echo "<div class='navegacion_categoria'>
+                        <div><a href='../Usuario/Home.php'>Inicio</a></div>
+                    </div>
+                    
+                    <div class='navegacion_usuario'>
+                    <div><a href='../Usuario/Perfil/Perfil.php'> ". $_SESSION['Usuario']."</a></div>
+                    <div>
+                            <a href='Carrito/Carrito.php' class='carrito'>
+                                <img src='../IMAGE/shopping-cart-solid.svg' width='30px'>
+                                Carrito
+                            </a>
+                        </div>
+                    </div>";
+                }
+                else if($_SESSION['Rol'] == 'administrador'){
+                    echo "<div class='navegacion_categoria'>
+                        <div><a href='Administrador/Home.php'>Inicio</a></div>
+                    </div>
+                    
+                    <div class='navegacion_usuario'>
+                        <div><a href=''>Gestión</a></div>
+                    </div>";
+                }
+                
+            }
+            else{
+                echo "<div class='navegacion_categoria'>";
+                echo "<div><a href='index.php'>Inicio</a></div>";
+                echo "</div>";
+            }
+        ?>
     </nav>
     <section>
         <div class="apariencia catalogo">
             <div class="busqueda">
-                <span>Buscar por categoría: </span>
                 <form method= "POST">
-                    <select name="filtro" id="filtro">
+                    <span>Buscar por categoría: </span>
+                    <select name="filtro" id="filtro" onchange='submit()'>
                         <option value="ninguna">Busqueda</option>
+                        <option value="todo">Todo</option>
                         <option value="Champú">Champú</option>
                         <option value="Jabón corporal">Jabón corporal</option>
                         <option value="Jabón facial">Jabón facial</option>
@@ -54,40 +80,66 @@
             </div>
             <?php
 
-                $select = $_POST['valor'];
-                echo $select;
-                $productos= "Select * from Producto";
-
+                if(isset($_POST['filtro'])){
+                    $categoria = $_POST['filtro'];
+                    if($categoria == "todo"){
+                        $productos= "Select * from Producto";
+                    }
+                    else{
+                        $productos= "Select * from Producto where Tipo = '$categoria'";
+                    }
+                    
+                }
+                else{
+                    $productos= "Select * from Producto";
+                }
+                
                 $query = mysqli_query($conexion, $productos);
-
-                while($fila = mysqli_fetch_array($query)){
+                
+                if(mysqli_num_rows($query) != 0){
+                    while($fila = mysqli_fetch_array($query)){
                     $imagen = $fila['Imagen'];
                     $porcentaje = "60%";
-                    echo "<div class='productos'>";
-                    echo " <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>";
-                    echo "<h3>".$fila['Nombre'] ."</h3>";
-                    echo "<p>".$fila['Precio']."</p>";
+                    echo "<div class='productos'>
+                        <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>
+                        <h3>".$fila['Nombre'] ."</h3>
+                        <p>".$fila['Precio']."</p>";
                     
                     $likes = mysqli_query($conexion, "Select * from Likes where idProducto = '".$fila['idProducto']."' and DNI = '".$_SESSION['DNI']."'");
         
-                    if(mysqli_num_rows($likes) == 0){
-                        echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
-                    }
-                    else{
-                        echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
-                    }
-                    
-                    echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
+                        if(mysqli_num_rows($likes) == 0){
+                            echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
+                        }
+                        else{
+                            echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
+                        }
+
+                        if(isset($_SESSION['Rol'])){
+                            if($_SESSION['Rol'] == 'Usuario'){
+                            echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
+                            }
+                            else{
+                            echo "<abbr title='Para añadir productos al carrito debe iniciar sesión'>
+                            <a href='Carrito.php'><button class='aparienciaBoton' disabled>Añadir al carro</button></a>
+                            </abbr>";
+                            }
+                        }
                     echo "</div>";
+                    }
                 }
+                else{
+                    echo "<h2 class = 'inicioH2'>Lo sentimos. En estos momentos no se han añadido productos de esta categoría.</h2>";
+
+                }
+                
                 
             ?>
         </div>
     </section>
     <footer>
-            <div><a href="../Nosotros.html">Nosotros</a></div>
-            <div><a href="../Contacto.html">Contacto</a></div>
-            <div><a href="../SitioWeb.html">Sitio Web</a></div>
+            <div><a href="../Nosotros.php">Nosotros</a></div>
+            <div><a href="../Contacto.php">Contacto</a></div>
+            <div><a href="../SitioWeb.php">Sitio Web</a></div>
         </footer>
     <script type='text/javascript' src='../JS/Likes.js'></script>
     
