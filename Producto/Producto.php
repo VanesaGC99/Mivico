@@ -51,33 +51,40 @@
                 
             }
             else{
-                echo "<div class='navegacion_categoria'>";
-                echo "<div><a href='index.php'>Inicio</a></div>";
-                echo "</div>";
+                echo "<div class='navegacion_categoria'>
+                    <div><a href='../'>Inicio</a></div>
+                        <div><a href='Producto.php'>Catálogo</a></div>
+                    </div>
+                    <div class='navegacion_usuario'>
+                        <div><a href='../gIniciarSesion/IniciarSesion.html'>Iniciar Sesión</a></div>
+                    </div>";
             }
         ?>
     </nav>
     <section>
         <div class="apariencia catalogo">
-            <div class="busqueda">
-                <form method= "POST">
-                    <span>Buscar por categoría: </span>
-                    <select name="filtro" id="filtro" onchange='submit()'>
-                        <option value="ninguna">Busqueda</option>
-                        <option value="todo">Todo</option>
-                        <option value="Champú">Champú</option>
-                        <option value="Jabón corporal">Jabón corporal</option>
-                        <option value="Jabón facial">Jabón facial</option>
-                        <option value="Mascarilla">Mascarilla</option>
-                        <option value="Balsamo">Bálsamo</option>
-                        <option value="Desmaquillante">Desmaquillante</option>
-                        <option value="Acondicionador">Acondicionador</option>
-                        <option value="Aceite">Aceite</option>
-                        <option value="Colonia">Colonia</option>
-                        <option value="Desodorante">Desodorante</option>
-                    </select>
-                </form>
+            <div>
+                <div class="busqueda">
+                    <form method= "POST">
+                        <span>Buscar por categoría: </span>
+                        <select name="filtro" id="filtro" onchange='submit()'>
+                            <option value="ninguna">Busqueda</option>
+                            <option value="todo">Todo</option>
+                            <option value="Champú">Champú</option>
+                            <option value="Jabón corporal">Jabón corporal</option>
+                            <option value="Jabón facial">Jabón facial</option>
+                            <option value="Mascarilla">Mascarilla</option>
+                            <option value="Balsamo">Bálsamo</option>
+                            <option value="Desmaquillante">Desmaquillante</option>
+                            <option value="Acondicionador">Acondicionador</option>
+                            <option value="Aceite">Aceite</option>
+                            <option value="Colonia">Colonia</option>
+                            <option value="Desodorante">Desodorante</option>
+                        </select>
+                    </form>
+                </div>
             </div>
+            <div>
             <?php
 
                 if(isset($_POST['filtro'])){
@@ -104,26 +111,27 @@
                         <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>
                         <h3>".$fila['Nombre'] ."</h3>
                         <p>".$fila['Precio']."</p>";
-                    
-                    $likes = mysqli_query($conexion, "Select * from Likes where idProducto = '".$fila['idProducto']."' and DNI = '".$_SESSION['DNI']."'");
-        
-                        if(mysqli_num_rows($likes) == 0){
-                            echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
-                        }
-                        else{
-                            echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
-                        }
 
                         if(isset($_SESSION['Rol'])){
-                            if($_SESSION['Rol'] == 'Usuario'){
-                            echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
+                            $likes = mysqli_query($conexion, "Select * from Likes where idProducto = '".$fila['idProducto']."' and DNI = '".$_SESSION['DNI']."'");
+            
+                            if(mysqli_num_rows($likes) == 0){
+                                echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
                             }
                             else{
+                                echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
+                            }
+
+                        
+                            echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
+                        }   
+                        else{
+                            echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
                             echo "<abbr title='Para añadir productos al carrito debe iniciar sesión'>
                             <a href='Carrito.php'><button class='aparienciaBoton' disabled>Añadir al carro</button></a>
                             </abbr>";
-                            }
                         }
+                        
                     echo "</div>";
                     }
                 }

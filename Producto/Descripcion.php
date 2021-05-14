@@ -40,7 +40,7 @@
         <p><a href="Producto.php">Catálogo</a> / <a href="">Descripción</p>
             <?php
 
-                $productos= "Select * from Producto Where idProducto = ''";
+                $productos= "Select * from Producto Where idProducto = '$id'";
 
                 $query = mysqli_query($conexion, $productos);
                 $producto = mysqli_fetch_assoc();
@@ -48,7 +48,7 @@
                 while($fila = mysqli_fetch_array($query)){
                     
                     echo "<div>";
-                    echo "<p></p>";
+                    echo "<p>$</p>";
                     echo "<div>";
                 }
                 

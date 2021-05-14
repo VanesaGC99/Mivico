@@ -30,7 +30,7 @@
             <div class="apariencia">
                 <h1 class = "inicioH1">¡Bienvenido a Mivico!</h1>
                 <h2 class = "inicioH2">En esta página web podras encontrar productos naturales respetuosos con el medio ambiente</h2>
-                <br><br>
+                <br>
                 <div class="slidershow">
 
                     <div class="left">

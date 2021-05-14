@@ -4,20 +4,29 @@ html{
 
 }
 
-/*Pone el espacio al 100*/
+/*Pone flexible y centra la imagen*/
+header{
+    display: flex;
+    justify-content: center;
+}
+
+/*Pone el espacio al 90% y 300px de alto, un borde marron, una sombra y redondea el borde*/
 .imagenInicio{
-    width: 99.5%;
-    border: solid 4px rgb(78, 49, 40);
+    width: 90%;
+    height: 300px;
+    border: solid 2px rgb(78, 49, 40);
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     border-radius: 10px;
 }
 
         /*BARRA DE NAVEGACION*/
 
-/*Pone el contenido de la etiqueta nav flexible*/
+/*Pone el contenido de la etiqueta nav flexible */
 nav{
     display: flex;
-    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top:1%;
 }
 
 /*Pone flexible el contenido, alinea al inicio de la página, un tamaño de un 60% y alinea el texto al centro*/
@@ -89,16 +98,16 @@ a:hover{
 }
 
         /*ZONA SELECT*/
-/*Pone un inline-block para establecer un ancho en el elemento y le ponemos un tamaño al 60%*/
+/*Pone flexible, entra el contenido y le añade un margen de 1%*/
 section{
     display: flex;
     justify-content: center;
-    margin: 3%;
+    margin: 1%;
 }
 
 /*Le pone un borde, una sombra, un imagenCorporativa en blanco ahumado, un radio de 10px, un margen interior de 1%, pone flexible y alineado al centro*/
 footer{
-    border: 4px rgb(78, 49, 40) solid;
+    border: 2px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     background-color: whitesmoke;
     border-radius: 10px;
@@ -106,18 +115,19 @@ footer{
     display: flex;
     justify-content: center;
 }
-
+/*le pone un margen interior*/
 footer > div{
     padding-left: 3%;
 }
 /*Le pone un borde solido de 4 pixeles, una sombra, un imagenCorporativa color blanco ahumado, un radio de 10px y un margen interior de 3%*/
 .apariencia{
-    border: 4px rgb(78, 49, 40) solid;
+    border: 2px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     color: rgb(78, 49, 40);
     background-color: whitesmoke;
     border-radius: 10px;
-    padding: 3%;
+    padding: 0.5%;
+    width: 90%;
 }
 /*Pone centrado el titulo*/
 h1{
@@ -127,18 +137,18 @@ h1{
 /*Cambia el color al titulo nivel uno y cambia su tamaño de fuente*/
 .inicioH1{
     color: rgb(78, 49, 40);
-    font-size: 250%;
+    font-size: 200%;
 }
 /*Cambia el color al titulo nivel dos y cambia su tamaño de fuente*/
 .inicioH2{
     color: rgb(78, 49, 40);
-    font-size: 150%;
+    font-size: 100%;
     text-align: center;
     
 }
 /*Pone un margen al inicio del 5%, lo pone flexible y lo centra*/
 .centrarContenido{
-    margin-top: 5%;
+    margin-top: 1%;
     display: flex;
     justify-content: center;
 }
@@ -146,17 +156,18 @@ h1{
 /*-----------FORMULARIOS----------*/
 /*pone un borde marron de 2 pixeles solido, pone un imagenCorporativa blanco al formulario, pone color marron a la letra, un margen interno de 3*/
 .formulario{
-    border: 4px rgb(78, 49, 40) solid;
+    border: 2px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     background-color: whitesmoke;
     color: rgb(78, 49, 40);
-    padding: 3%;
+    padding: 2%;
 }
 
 /*Pone un inline-block para establecer un ancho en el elemento y le ponemos un tamaño al 45%*/
 label, input{
     display: inline-block;
-    width: 45%;
+    width: 40%;
+    padding: 10px;
 }
 
 /*le pone un borde color marron de 2 pixeles solido y un radio en el borde de 5 pixeles*/
@@ -175,8 +186,9 @@ input{
 /*-----------CATÁLOGO DE PRODUCTOS---------*/
 /*Divide en 3 columnas*/
 .catalogo{
-    width: 70%;
+    width: 90%;
     display: table;
+    
 }
 
 .contenedor{
@@ -197,7 +209,7 @@ input{
 /*Pone el elemento como bloque y le pone un margen del 3%*/
 .busqueda{
     display: block;
-    margin: 3%;
+    margin: 2%;
 }
 
 /*Le pone un tamaño al 50%, un margen interior, un margen exterior, un radio de 5 px,
@@ -217,9 +229,9 @@ un borde de 2px marrón solido, la letra en color marron y la fuente en negrita*
 redondea los border y pone un margen interior de 10px*/
 .productos{
     float: left;
-    width: 30%;
-    margin: 5px;
-    border: 4px rgb(78, 49, 40) solid;
+    width: 20%;
+    margin: 1%;
+    border: 2px rgb(78, 49, 40) solid;
     color: rgb(78, 49, 40);
     border-radius: 10px;
     text-align: center;
@@ -242,14 +254,14 @@ redondea los border y pone un margen interior de 10px*/
 
 /*Le da una posicion, le pone un tamaño, con un margen interno, un color al imagenCorporativa, un borde azul solido de 4 pixeles, una sombra azul y un margen izquierdo y derecho del 6%*/
 #slider{
-    width: 30%;
-    height: 30%;
-    padding: 5px;
-    border: 4px rgb(78, 49, 40) solid;
+    width: 20%;
+    height: 20%;
+    padding: 10px;
+    border: 2px rgb(78, 49, 40) solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     border-radius: 10px;
-    margin-left: 6%;
-    margin-right: 6%;
+    margin-left: 3%;
+    margin-right: 3%;
     
 }
 
