@@ -13,7 +13,7 @@ header{
 /*Pone el espacio al 90% y 300px de alto, un borde marron, una sombra y redondea el borde*/
 .imagenInicio{
     width: 90%;
-    height: 300px;
+    height: 250px;
     border: solid 2px rgb(78, 49, 40);
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
     border-radius: 10px;
@@ -27,6 +27,7 @@ nav{
     margin-left: 5%;
     margin-right: 5%;
     margin-top:1%;
+    font-size: 100%;
 }
 
 /*Pone flexible el contenido, alinea al inicio de la página, un tamaño de un 60% y alinea el texto al centro*/
@@ -231,16 +232,21 @@ redondea los border y pone un margen interior de 10px*/
     float: left;
     width: 20%;
     margin: 1%;
-    border: 2px rgb(78, 49, 40) solid;
     color: rgb(78, 49, 40);
     border-radius: 10px;
     text-align: center;
     padding: 10px;
 }
 
+.productos:hover{
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+}
+
+.productos > h3{
+    font-size: 100%;
+}
 /*le pone un borde solido de 4px y un radio de 10px*/
 .productos > img{
-    border: 4px rgb(78, 49, 40) solid;
     border-radius: 10px;
 }
 
@@ -284,7 +290,6 @@ redondea los border y pone un margen interior de 10px*/
 
 /*Pone flexible la zona*/
 .flexible{
-    width: 60%;
     display: flex;
     margin: 5%;
 }
@@ -325,3 +330,22 @@ hr{
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
 }
 
+@media only screen and (max-width: 992px){
+    .imagenInicio{
+        height: 200px;
+    }
+    .productos{
+        width: 40%;
+    }
+    .navegacion_categoria >div{
+        width: 30%;
+    }
+    .navegacion_usuario > div{
+        width: 30%;
+    }
+    #slider{
+        width: 50%;
+        height: 50%;
+        padding: 5px;        
+    }
+}

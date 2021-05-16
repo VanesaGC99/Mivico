@@ -106,7 +106,7 @@
                 if(mysqli_num_rows($query) != 0){
                     while($fila = mysqli_fetch_array($query)){
                     $imagen = $fila['Imagen'];
-                    $porcentaje = "60%";
+                    $porcentaje = "70%";
                     echo "<div class='productos'>
                         <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>
                         <h3>".$fila['Nombre'] ."</h3>
