@@ -52,9 +52,10 @@
     </nav>
     <section>
         <div class="apariencia flexible">
-            <div><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="100%"></div>
+            <div class="imagen"><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="60%"></div>
             <div>
-                <p>En <strong>Mivico</strong> disponemos de un correo el cual se revisa diariamente, puedes enviarnos tu opinión o tu</p>
+                <h2>Contacto</h2>
+                <p>En <strong>Mivico</strong> disponemos de un correo el cual se revisa diariamente.</p>
                 <p><strong>Correo electronico: </strong> contacto.mivico@gmail.com</p>
                 <p>Aquí puedes enviar un mensaje a nuestro correo, al que te responderemos lo antes posible:</p>
                 <div>
@@ -73,11 +74,14 @@
                         <br>
                         <label>Asunto: </label>
                         <select name="asunto">
+                            <option value="seleccion">Selecciona una opcion</option>
                             <option value="atencionCliente">Atencion al cliente</option>
                             <option value="problema">Problema</option>
                             <option value="otro">Otro</option>
                         </select>
-                        <textarea name="contenido" rows="10" cols="50"></textarea>
+                        <label>Contenido del email: </label><br>
+                        <textarea name="contenido" rows="10" style= "width: 100%;"></textarea>
+                        <input type="submit" name="enviarCorreo" id="enviarCorreo" value="Enivar">
                     </fieldset>
                 </form>
             </div>

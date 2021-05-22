@@ -1,7 +1,7 @@
 /*Pone el imagenCorporativa de la página con un color*/
 html{
     background-color:rgb(199, 164, 152);
-
+    min-height: 100%;
 }
 
 /*Pone flexible y centra la imagen*/
@@ -104,6 +104,7 @@ section{
     display: flex;
     justify-content: center;
     margin: 1%;
+    height: 100%;
 }
 
 /*Le pone un borde, una sombra, un imagenCorporativa en blanco ahumado, un radio de 10px, un margen interior de 1%, pone flexible y alineado al centro*/
@@ -115,6 +116,8 @@ footer{
     padding: 1%;
     display: flex;
     justify-content: center;
+    width: 90%;
+    margin-left: 3.5%;
 }
 /*le pone un margen interior*/
 footer > div{
@@ -127,7 +130,7 @@ footer > div{
     color: rgb(78, 49, 40);
     background-color: whitesmoke;
     border-radius: 10px;
-    padding: 0.5%;
+    padding: 1%;
     width: 90%;
 }
 /*Pone centrado el titulo*/
@@ -198,15 +201,6 @@ input{
     margin-bottom: 10px;
 }
 
-.contenedor > a{
-    width: 50%;
-    padding-top: 3px;
-}
-
-.contenedor > button{
-    width: 50%;
-}
-
 /*Pone el elemento como bloque y le pone un margen del 3%*/
 .busqueda{
     display: block;
@@ -223,6 +217,7 @@ un borde de 2px marrón solido, la letra en color marron y la fuente en negrita*
     border: rgb(78, 49, 40) 2px solid;
     color: rgb(78, 49, 40);
     font-weight: bold;
+    cursor:pointer;
 }
 /*Crea la cuadricula de los productos*/
 /*Alinea los productos a la izquierda, le pone un ancho del 30%, un margen superior de 10 pixeles,
@@ -276,13 +271,21 @@ redondea los border y pone un margen interior de 10px*/
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 8%;
 }
 
+.left > img{
+    width: 50%;
+    margin-left: 50%;
+}
+
+.right > img{
+    width: 50%;
+}
 /*lo alinea a la izquierda*/
 .left{
     left: 10px;
 }
-
 /*lo alinea a la izquierda*/
 .right{
     right: 10px;
@@ -299,7 +302,18 @@ redondea los border y pone un margen interior de 10px*/
     display: block;
     
 }
+/*Centra la imagen en el div*/
+.flexible > .imagen{
+    display: flex;
+    justify-content: center;
+}
 
+/**/
+.imagen > img {
+    border-radius: 10px;
+    box-shadow: grey 2px 2px 5px;
+    width: 60%;
+}
 /*-------PERFIL------*/
 /*Pone un tamaño al menu, un margen de 1%, un margen interior de 1% y un borde derecho marron de 3px solido*/
 .flexible > .menu{
@@ -325,9 +339,30 @@ redondea los border y pone un margen interior de 10px*/
     display: block;
 }
 
+.comentario{
+    display:flex;
+    justify-content: center;
+}
+.comentario > form{
+    width: 60%;
+}
+/* Cambia el color del borde inferior y le pone sombra*/
 hr{
     border-bottom: rgb(78, 49, 40) 2px solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+}
+
+/*Le da un tamaño a la imagen de la descripcion, le pone un margen*/
+.imagenDescripcion{
+    width: 30%;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+/*Pone justificado el texto, le pone un margen, le da espacio entre parrafos*/
+.descripcion{
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 @media only screen and (max-width: 992px){
@@ -347,5 +382,37 @@ hr{
         width: 50%;
         height: 50%;
         padding: 5px;        
+    }
+}
+
+@media only screen and (max-width: 800px){
+    html{
+        font-size: 12px;
+    }
+    .imagenInicio{
+        height: 100px;
+    }
+    .productos{
+        margin-top: 1%;
+        float:none;
+        width: 90%;
+    }
+    .navegacion_categoria >div{
+        width: 30%;
+    }
+    .navegacion_usuario > div{
+        width: 35%;
+    }
+    #slider{
+        width: 50%;
+        height: 50%;
+        padding: 5px;        
+    }
+    .aparienciaBoton{
+        width: 40%;
+    }
+    .imagen > img {
+        width: 90%;
+        height: 200px;
     }
 }

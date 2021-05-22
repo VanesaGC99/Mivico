@@ -34,7 +34,7 @@
                 <div class="slidershow">
 
                     <div class="left">
-                        <img src="IMAGE/slider/flecha-izquierda.png" width="50" >
+                        <img src="IMAGE/slider/flecha-izquierda.png">
                     </div>
 
                     <div id="slider">
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="right">
-                        <img src="IMAGE/slider/flecha-derecha.png" width="50" >
+                        <img src="IMAGE/slider/flecha-derecha.png">
                     </div>
 
                 </div>

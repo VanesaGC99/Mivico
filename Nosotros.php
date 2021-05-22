@@ -53,18 +53,18 @@
     </nav>
     <section>
         <div class="apariencia flexible">
-            <div><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="100%"></div>
+            <div class="imagen"><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="60%"></div>
             <div>
             <h2>¿Que es Mivico?</h2>
             <p>El nombre de <b>Mivico</b> proviene de <i>Mi vida eco</i>.</p>
             <p>Esta empresa se dedica a la creación y venta de productos naturales respetuosos con el medio ambiente y cero residuos, 
-                tambien se pretende conseguir que sean accesibles a todo tipo de cliente</p>
+                también se pretende conseguir que sean accesibles a todo tipo de cliente.</p>
             <h2>Misión</h2>
             <p>La misión de Mivico es proporcionar a las personas productos, con los que poder satisfacer los cuidados de su piel y cabello,
                 que sean más sostenibles, libres de plásticos y con ingredientes naturales, por ende más saludable.</p>
             <h2>Visión</h2>
             <p>Como empresa queremos que todo tipo de cliente con todo tipo de bolsillo pueda tener acceso a nuestros productos y que estos 
-                puedan solventar las necesidades de cada tipo de piel o cabello</p>
+                puedan solventar las necesidades de cada tipo de piel o cabello.</p>
             </div>
         </div>
     </section>

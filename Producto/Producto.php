@@ -27,11 +27,12 @@
                 if($_SESSION['Rol'] == 'Usuario'){
                     echo "<div class='navegacion_categoria'>
                         <div><a href='../Usuario/Home.php'>Inicio</a></div>
+                        <div><a href='Producto.php'>Catálogo</a></div>
                     </div>
                     
                     <div class='navegacion_usuario'>
                     <div><a href='../Usuario/Perfil/Perfil.php'> ". $_SESSION['Usuario']."</a></div>
-                    <div>
+                        <div>
                             <a href='Carrito/Carrito.php' class='carrito'>
                                 <img src='../IMAGE/shopping-cart-solid.svg' width='30px'>
                                 Carrito
@@ -39,24 +40,26 @@
                         </div>
                     </div>";
                 }
-                else if($_SESSION['Rol'] == 'administrador'){
+                else if($_SESSION['Rol'] == 'Administrador'){
                     echo "<div class='navegacion_categoria'>
-                        <div><a href='Administrador/Home.php'>Inicio</a></div>
-                    </div>
+                            <div><a href='../Administrador/Home.php'>Inicio</a></div>
+                            <div><a href='Producto.php'>Catálogo</a></div>
+                          </div>
+                          
                     
                     <div class='navegacion_usuario'>
-                        <div><a href=''>Gestión</a></div>
+                        <div><a href='../Administrador/Gestion/menuGestion.php'>Gestión</a></div>
                     </div>";
                 }
                 
             }
             else{
                 echo "<div class='navegacion_categoria'>
-                    <div><a href='../'>Inicio</a></div>
+                        <div><a href='../'>Inicio</a></div>
                         <div><a href='Producto.php'>Catálogo</a></div>
                     </div>
                     <div class='navegacion_usuario'>
-                        <div><a href='../gIniciarSesion/IniciarSesion.html'>Iniciar Sesión</a></div>
+                        <div><a href='../IniciarSesion/IniciarSesion.html'>Iniciar Sesión</a></div>
                     </div>";
             }
         ?>
@@ -107,32 +110,41 @@
                     while($fila = mysqli_fetch_array($query)){
                     $imagen = $fila['Imagen'];
                     $porcentaje = "70%";
-                    echo "<div class='productos'>
+
+                    echo "<a href='Descripcion.php?id=".$fila['idProducto']."'><div class='productos'>
                         <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>
                         <h3>".$fila['Nombre'] ."</h3>
-                        <p>".$fila['Precio']."</p>";
+                        <div class='contenedor'>
+                        <p style='float:left;'> Precio: ".$fila['Precio']."</p>";
 
                         if(isset($_SESSION['Rol'])){
                             $likes = mysqli_query($conexion, "Select * from Likes where idProducto = '".$fila['idProducto']."' and DNI = '".$_SESSION['DNI']."'");
             
                             if(mysqli_num_rows($likes) == 0){
-                                echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
+                                ?>
+                                <button class='like aparienciaBoton' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>
+                            <?php
                             }
                             else{
-                                echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>";
+                            ?>
+                                <button class='like aparienciaBoton' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>
+                            <?php
                             }
-
-                        
-                            echo "<a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>";
+                            ?>
+                                <a href='Carrito.php'><button class='aparienciaBoton'>Añadir al carro</button></a>
+                        <?php
                         }   
                         else{
-                            echo "<div class='contenedor'><a href='Descripcion.php?id=".$fila['idProducto']."'>Info.</a> <button class='like' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>";
+                        ?>
+                            
+                            <button class='like aparienciaBoton' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>
+                        <?php
                             echo "<abbr title='Para añadir productos al carrito debe iniciar sesión'>
                             <a href='Carrito.php'><button class='aparienciaBoton' disabled>Añadir al carro</button></a>
                             </abbr>";
                         }
                         
-                    echo "</div>";
+                    echo "</div></a>";
                     }
                 }
                 else{
