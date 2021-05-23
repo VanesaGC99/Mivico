@@ -2,6 +2,8 @@
 
     //Conexion a la base de datos
     require '../PHP/ConectarBD.php';
+    require '../PHP/BD/DAOProducto.php';
+    require '../PHP/BD/DAOLikes.php';
     $conexion = conectar();
 ?>
 <!DOCTYPE html>
@@ -89,22 +91,14 @@
             </div>
             <div>
             <?php
-
                 if(isset($_POST['filtro'])){
                     $categoria = $_POST['filtro'];
-                    if($categoria == "todo"){
-                        $productos= "Select * from Producto";
-                    }
-                    else{
-                        $productos= "Select * from Producto where Tipo = '$categoria'";
-                    }
-                    
                 }
                 else{
-                    $productos= "Select * from Producto";
+                    $categoria = "";
                 }
                 
-                $query = mysqli_query($conexion, $productos);
+                $query = catalogo($conexion, $categoria);
                 
                 if(mysqli_num_rows($query) != 0){
                     while($fila = mysqli_fetch_array($query)){
@@ -115,19 +109,19 @@
                         <img src='../IMAGE/$imagen' width=$porcentaje height=$porcentaje>
                         <h3>".$fila['Nombre'] ."</h3>
                         <div class='contenedor'>
-                        <p style='float:left;'> Precio: ".$fila['Precio']."</p>";
+                        <p style='float:left;'> Precio: ".$fila['Precio']."</p></a>";
 
                         if(isset($_SESSION['Rol'])){
-                            $likes = mysqli_query($conexion, "Select * from Likes where idProducto = '".$fila['idProducto']."' and DNI = '".$_SESSION['DNI']."'");
-            
+                            $likes = comprobarLike($conexion, $fila['idProducto'], $_SESSION['DNI']);
+    
                             if(mysqli_num_rows($likes) == 0){
                                 ?>
-                                <button class='like aparienciaBoton' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>
+                                <button class='like aparienciaBoton' id="<?php echo $fila['idProducto']; ?>"><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>
                             <?php
                             }
                             else{
                             ?>
-                                <button class='like aparienciaBoton' id=".$fila['idProducto']."><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>
+                                <button class='like aparienciaBoton' id="<?php echo $fila['idProducto']; ?>"><img src='../IMAGE/likes/dislike.png' width=10%> No me gusta </button></div>
                             <?php
                             }
                             ?>
@@ -137,14 +131,14 @@
                         else{
                         ?>
                             
-                            <button class='like aparienciaBoton' id=".$fila['idProducto']."><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>
+                            <button class='like aparienciaBoton' id="<?php echo $fila['idProducto']; ?>"><img src='../IMAGE/likes/like.png' width=10%> Me gusta </button></div>
                         <?php
                             echo "<abbr title='Para añadir productos al carrito debe iniciar sesión'>
                             <a href='Carrito.php'><button class='aparienciaBoton' disabled>Añadir al carro</button></a>
                             </abbr>";
                         }
                         
-                    echo "</div></a>";
+                    echo "</div>";
                     }
                 }
                 else{

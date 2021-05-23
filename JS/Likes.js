@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $(".like").click(function(){
         var id = this.id;
+        alert(id);
         $.ajax({
             
             url: '../PHP/Funciones/Like.php',
@@ -9,7 +10,6 @@ $(document).ready(function(){
             dataType: 'json',
 
             success:function(data){
-                var likes = data['likes'];
                 var text = data['text'];
 
                 console.log("texto " +text);

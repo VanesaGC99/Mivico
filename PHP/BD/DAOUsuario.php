@@ -17,7 +17,7 @@
             echo "$atributo : $valor <br>";
         }
     }
-
+    /*
     //Insertar datos de productos
     function insertar(){
 
@@ -32,6 +32,13 @@
     function modificar(){
 
     }
+*/
+    //Buscar usuario por DNI
+    function buscarDNI($conexion, $dni){
+        $buscar = "Select * from Usuario where DNI = '$dni'";
 
-    
+        $query = mysqli_query($conexion, $buscar);
+
+        return $query;
+    }
 ?>

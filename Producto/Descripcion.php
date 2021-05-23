@@ -1,9 +1,11 @@
 <?php
     //Conexion a la base de datos
     require '../PHP/ConectarBD.php';
+    require '../PHP/BD/DAOProducto.php';
+    require '../PHP/BD/DAOComentarios.php';
+    require '../PHP/BD/DAOUsuario.php';
     $conexion = conectar();
-
-    $id = $_GET['id'];
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,6 +30,7 @@
                 if($_SESSION['Rol'] == 'Usuario'){
                     echo "<div class='navegacion_categoria'>
                         <div><a href='../Usuario/Home.php'>Inicio</a></div>
+                        <div><a href='../Producto/Producto.php'>Catálogo</a></div>
                     </div>
                     
                     <div class='navegacion_usuario'>
@@ -43,7 +46,7 @@
                 else if($_SESSION['Rol'] == 'Administrador'){
                     echo "<div class='navegacion_categoria'>
                             <div><a href='../Administrador/Home.php'>Inicio</a></div>
-                            <div><a href='Producto.php'>Catálogo</a></div>
+                            <div><a href='../Producto/Producto.php'>Catálogo</a></div>
                           </div>
                           
                     
@@ -70,16 +73,18 @@
         <p><a href="Producto.php">Catálogo</a> / <a href="">Descripción</a></p>
                 <?php
 
-                $productos= "Select * from Producto Where idProducto = '$id'";
-
-                $query = mysqli_query($conexion, $productos);
+                //si recoge el id 
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                
+                $query = buscarProducto($conexion, $id);
 
                 while($fila = mysqli_fetch_array($query)){
                     
                 ?>
                     <div class="flexible">
                         <div class="imagen"><img src="../IMAGE/<?php echo $fila['Imagen']; ?>"></div>
-                        <div>
+                        <div style="margin:auto;">
                             <h2><?php echo $fila['Nombre']; ?></h2>
                             <p><strong>Tipo: </strong><?php echo $fila['Tipo']; ?></p>
                             <p><strong>Precio: </strong> <?php echo $fila['Precio']; ?></p>
@@ -97,17 +102,73 @@
 
                 ?>
                 <div class="comentario">
-                    <form action="" method="post">
+
+                    <div>
+                    <form action="../PHP/Funciones/Comentarios.php" method="post" id="formulario">
                         <fieldset>
                         <legend>Añadir comentario</legend>
                         <p>En los comentarios se pueden poner máximo 500 caracteres: </p>
-                        <textarea name="contenido" rows="10" style= "width: 100%;" maxlength="500"></textarea>
+                        <textarea name="contenido" rows="3" style= "width: 100%;" maxlength="500"></textarea>
                         <input type="hidden" name="dni" value="<?php echo $_SESSION['DNI'] ?>" id="dni">
                         <input type="hidden" name="producto" value="<?php echo $id ?>" id="producto">
+                        <br>
+                        <input type="submit" name="botonComentario" id= "botonComentario" value="Enviar">
                         </fieldset>
                     </form>
+                <?php
+                }
+                ?>
+                        <br>
+                        <div>
+                        <button onclick="mostrar();" class="verComentario">Ver comentarios</button>
+                        <br>
+                            <div id="mostrarComentarios" style="display:none">
+                            <?php
+                                //Mostrar comentarios
+
+                                    
+                                    $comentarios = mostrarComentarios($conexion);
+
+                                    while($comentario = mysqli_fetch_array($comentarios)){
+
+                                        $nombreUsuario = buscarDNI($conexion, $comentario['DNI']);
+                                        
+                                        $nombre = mysqli_fetch_assoc($nombreUsuario);
+                                    ?>
+                                    <div class="mostrarComentarios">
+                                        <!-- Menu de opciones para los comentarios -->
+                                        <div class="Menu">
+                                            <div class="titulo botonMenu">
+                                            <p>Opciones</p>
+                                            </div>
+                                            <div class="contenidoMenu">
+                                                <ul>
+                                                    <li><a href="Comentario/ModificarComentario.php">Modificar</a></li>
+                                                    <li><a href="Comentario/EliminarComentario.php">Eliminar</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <p><?php echo $nombre['Usuario']; ?></p>
+                                        <p><?php echo $comentario['fechaComentario']; ?></p>
+                                        <p><?php echo $comentario['Contenido']; ?></p>
+                                    </div>
+                                    <?php
+                                    
+                                    }
+                                
+                            ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <?php
+                }
+                else{
+                    ?>
+                    <h1 class = 'inicioH1'>Lo sentimos, ha habido un error al cargar la página.</h1>
+                    <h2 class = 'inicioH2'>Vuelva al <a href="Producto.php">catálogo</a> para ver algún otro producto.</h2>
+                    <?php
                 }
                 ?>
         </div>
@@ -117,6 +178,17 @@
         <div><a href="../Contacto.php">Contacto</a></div>
         <div><a href="../SitioWeb.php">Sitio Web</a></div>
     </footer>
-    <script src="../JS/comentario.js">
+    <script>
+        function mostrar(){
+            var x = document.getElementById("mostrarComentarios");
+
+            if(x.style.display === "none"){
+                x.style.display = "block";
+            }else{
+                x.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>

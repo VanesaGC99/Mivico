@@ -1,23 +1,24 @@
 <?php
     require '../ConectarBD.php';
+    require '../BD/DAOLikes.php';
     $conexion = conectar();
 
     session_start();
     $producto = $_POST['id'];
     $usuario = $_SESSION['DNI'];
 
-    $comprobar = mysqli_query($conexion,"Select * from Likes Where idProducto = '" .$producto."' And DNI = '" .$usuario."'");
+    $comprobar = comprobarLike($conexion, $producto, $usuario);
     $count = mysqli_num_rows($comprobar);
 
     if($count == 0){
 
-        $insert = mysqli_query($conexion, "Insert into Likes (DNI, idProducto, fechaLike) values ('$usuario', '$producto', '".date('d')."/".date('m')."/".date('Y')."')");
-        $update = mysqli_query($conexion, "Update Producto set likes = likes+1 where idProducto = '$producto' and DNI = '$usuario'");
+        $insert = insertarLike($conexion, $usuario, $producto);
+        $update = modificarLike($conexion, $usuario, $producto);
     }
     else{
         
-        $delete = mysqli_query($conexion, "Delete from Likes Where idProducto = '$producto' and DNI = '$usuario'");
-        $update = mysqli_query($conexion, "Update Producto set likes = likes-1 where idProducto = '$producto' and DNI = '$usuario'");
+        $delete = eliminarLike($conexion, $usuario, $producto);
+        $update = modificarLike($conexion, $usuario, $producto);
     }
 
     if($count >= 1){

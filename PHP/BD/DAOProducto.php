@@ -1,13 +1,17 @@
 <?php
 
     //Muestra todos los productos de la base de datos
-    function catalogo($conexion){
-        $consulta = "Select * from Protucto";
-        $mostrar = mysqli_query($conexion, $consulta);
+    function catalogo($conexion, $categoria){
 
-        if($mostrar){
-            echo "Se muestran datos";
+        if($categoria == "todo" || $categoria == ""){
+            $productos= "Select * from Producto";
         }
+        else{
+            $productos= "Select * from Producto where Tipo = '$categoria'";
+        }
+        $mostrar = mysqli_query($conexion, $productos);
+
+        return $mostrar;
     }
     
     //Funcion para hacer un array con 4 imagenes aleatorias de la base de datos
@@ -37,4 +41,14 @@
 
     }
 
+    //Buscar un producto por su id
+
+    function buscarProducto($conexion, $id){
+
+        $productos= "Select * from Producto Where idProducto = '$id'";
+
+        $query = mysqli_query($conexion, $productos);
+
+        return $query;
+    }
 ?>

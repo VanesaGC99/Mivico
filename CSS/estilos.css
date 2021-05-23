@@ -185,6 +185,7 @@ input{
     width: 100%;
     color: rgb(78, 49, 40);
     font-weight: bold;
+    cursor: pointer;
 }
 
 /*-----------CATÁLOGO DE PRODUCTOS---------*/
@@ -312,7 +313,7 @@ redondea los border y pone un margen interior de 10px*/
 .imagen > img {
     border-radius: 10px;
     box-shadow: grey 2px 2px 5px;
-    width: 60%;
+    width: 40%;
 }
 /*-------PERFIL------*/
 /*Pone un tamaño al menu, un margen de 1%, un margen interior de 1% y un borde derecho marron de 3px solido*/
@@ -338,13 +339,19 @@ redondea los border y pone un margen interior de 10px*/
     padding: 2%;
     display: block;
 }
-
-.comentario{
+/*centrar div*/
+.apariencia > .comentario{
     display:flex;
     justify-content: center;
 }
-.comentario > form{
-    width: 60%;
+
+.comentario > div{
+    width: 40%;
+}
+/*poner a la derecha el botón y poner el cursor como pointer*/
+.comentario form #botonComentario{
+    float: right;
+    cursor: pointer;
 }
 /* Cambia el color del borde inferior y le pone sombra*/
 hr{
@@ -364,7 +371,29 @@ hr{
     margin-left: 2%;
     margin-right: 2%;
 }
+/*Cambia el boton*/
+.verComentario{
+    border: rgb(78, 49, 40) 3px solid;
+    box-shadow: rgb(78, 49, 40) 2px 2px 5px;
+    cursor:pointer;
+    width: 100%; 
+}
 
+/*le pone un */
+.Menu{
+    width: 20%;
+    float:right;
+}
+
+/**/
+.title:hover{
+    background-color: rgb(78, 49, 40);
+    font-weight: bold;
+}
+/**/
+.botonMenu:hover{
+    cursor:pointer;
+}
 @media only screen and (max-width: 992px){
     .imagenInicio{
         height: 200px;
