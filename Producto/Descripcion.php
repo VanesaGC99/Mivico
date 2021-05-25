@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../CSS/estilos.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.goolgeapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
     <title>Mivico</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
                           
                     
                     <div class='navegacion_usuario'>
-                        <div><a href='../Administrador/Gestion/menuGestion.php'>Gestión</a></div>
+                        <div><a href='../Administrador/Gestion/menuGestion.php'> Menú gestión </a></div>
                     </div>";
                 }
                 
@@ -96,31 +97,36 @@
                         <p><strong>Descripción: </strong></p>
                         <p> <?php echo nl2br($fila['Descripcion']); ?></p>
                     </div>
+                    <div class="contenidoComentarios">
                 <?php
                 }
                 if(isset($_SESSION['Rol'])){
 
                 ?>
-                <div class="comentario">
+                
+                    <div class="comentario">
 
-                    <div>
-                    <form action="../PHP/Funciones/Comentarios.php" method="post" id="formulario">
-                        <fieldset>
-                        <legend>Añadir comentario</legend>
-                        <p>En los comentarios se pueden poner máximo 500 caracteres: </p>
-                        <textarea name="contenido" rows="3" style= "width: 100%;" maxlength="500"></textarea>
-                        <input type="hidden" name="dni" value="<?php echo $_SESSION['DNI'] ?>" id="dni">
-                        <input type="hidden" name="producto" value="<?php echo $id ?>" id="producto">
-                        <br>
-                        <input type="submit" name="botonComentario" id= "botonComentario" value="Enviar">
-                        </fieldset>
-                    </form>
+                        <div>
+                        <form action="../PHP/Funciones/Comentarios.php" method="post" id="formulario">
+                            <fieldset>
+                            <legend>Añadir comentario</legend>
+                            <p>En los comentarios se pueden poner máximo 500 caracteres: </p>
+                            <textarea name="contenido" rows="3" style= "width: 100%;" maxlength="500"></textarea>
+                            <input type="hidden" name="dni" value="<?php echo $_SESSION['DNI'] ?>" id="dni">
+                            <input type="hidden" name="producto" value="<?php echo $id ?>" id="producto">
+                            <br>
+                            <input type="submit" name="botonComentario" id= "botonComentario" value="Enviar">
+                            </fieldset>
+                        </form>
+                        </div>
+                    </div>
                 <?php
                 }
                 ?>
-                        <br>
+                    
+                    <div class="comentario">
                         <div>
-                        <button onclick="mostrar();" class="verComentario">Ver comentarios</button>
+                        <button class="verComentario">Ver comentarios</button>
                         <br>
                             <div id="mostrarComentarios" style="display:none">
                             <?php
@@ -135,7 +141,14 @@
                                         
                                         $nombre = mysqli_fetch_assoc($nombreUsuario);
                                     ?>
-                                    <div class="mostrarComentarios">
+                                    <div>
+
+                                        <div>
+                                        <p><?php echo $nombre['Usuario']; ?></p>
+                                        <p><?php echo $comentario['fechaComentario']; ?></p>
+                                        <p><?php echo $comentario['Contenido']; ?></p>
+                                        </div>
+
                                         <!-- Menu de opciones para los comentarios -->
                                         <div class="Menu">
                                             <div class="titulo botonMenu">
@@ -148,10 +161,6 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <br>
-                                        <p><?php echo $nombre['Usuario']; ?></p>
-                                        <p><?php echo $comentario['fechaComentario']; ?></p>
-                                        <p><?php echo $comentario['Contenido']; ?></p>
                                     </div>
                                     <?php
                                     
@@ -178,17 +187,6 @@
         <div><a href="../Contacto.php">Contacto</a></div>
         <div><a href="../SitioWeb.php">Sitio Web</a></div>
     </footer>
-    <script>
-        function mostrar(){
-            var x = document.getElementById("mostrarComentarios");
-
-            if(x.style.display === "none"){
-                x.style.display = "block";
-            }else{
-                x.style.display = "none";
-            }
-        }
-    </script>
-
+    <script type='text/javascript' src="../JS/menuComentario.js"></script>
 </body>
 </html>

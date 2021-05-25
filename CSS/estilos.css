@@ -117,7 +117,9 @@ footer{
     display: flex;
     justify-content: center;
     width: 90%;
-    margin-left: 3.5%;
+    margin:3.5%;
+    position: fixed;
+    bottom: 0;
 }
 /*le pone un margen interior*/
 footer > div{
@@ -309,7 +311,7 @@ redondea los border y pone un margen interior de 10px*/
     justify-content: center;
 }
 
-/**/
+/*Redondea las esquinas, le pone una sombra gris y un tamaño del 40%*/
 .imagen > img {
     border-radius: 10px;
     box-shadow: grey 2px 2px 5px;
@@ -344,7 +346,7 @@ redondea los border y pone un margen interior de 10px*/
     display:flex;
     justify-content: center;
 }
-
+/*Le pone un tamaño al div*/
 .comentario > div{
     width: 40%;
 }
@@ -371,7 +373,18 @@ hr{
     margin-left: 2%;
     margin-right: 2%;
 }
-/*Cambia el boton*/
+
+/*Centra los comentarios en la página*/
+.contenidoComentarios{
+    display: flex;
+    justify-content: center;
+
+}
+/*le pone un tamaño al 100%*/
+.comentario{
+    width: 100%;
+}
+/*Pone color marron a 3px solido, una sombra, el tamaño al 100% y el cursor en pointer*/
 .verComentario{
     border: rgb(78, 49, 40) 3px solid;
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
@@ -379,13 +392,14 @@ hr{
     width: 100%; 
 }
 
-/*le pone un */
+/*Le pone un tamaño, alinea a la derecha y le pone un margen abajo*/
 .Menu{
     width: 20%;
     float:right;
+    margin-bottom: 3px;
 }
 
-/**/
+/*Cambia el color del fondo y lo pone en negrita*/
 .title:hover{
     background-color: rgb(78, 49, 40);
     font-weight: bold;
@@ -394,6 +408,51 @@ hr{
 .botonMenu:hover{
     cursor:pointer;
 }
+.contenidoMenu ul{
+    margin: 0;
+    padding: 0 10px;
+}
+.contenidoMenu, .botonMenu{
+    border: rgb(78, 49, 40) 2px solid;
+}
+
+.contenidoMenu{
+    padding: 15px 8px;
+    background-color: #fff;
+    margin-top: -1px;
+}
+.contenidoMenu ul li{
+    list-style: none;
+    padding: 5px 0;
+}
+
+/*centra el div*/
+.apariencia > .gestion{
+    display: flex;
+    justify-content: center;
+}
+/*ponerle un tamaño y quitar el float*/
+.gestion > .productos{
+    float: none;
+    width: 40%;
+}
+/*------ADMINISTRACION------*/
+/*centra el contenido*/
+.lista{
+    display: flex;
+    justify-content: center;
+}
+
+/*fusiona el borde y le pone un margen*/
+.lista table{
+    border-collapse: collapse ;
+     width: 50%;
+}
+/*Los separa con un borde*/
+.lista table tr{
+    border-bottom: 2px rgb(78, 49, 40) solid;
+}
+
 @media only screen and (max-width: 992px){
     .imagenInicio{
         height: 200px;

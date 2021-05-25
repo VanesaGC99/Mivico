@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $(".like").click(function(){
         var id = this.id;
-        alert(id);
+        
         $.ajax({
             
             url: '../PHP/Funciones/Like.php',

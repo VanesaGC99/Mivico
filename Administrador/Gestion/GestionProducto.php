@@ -38,25 +38,8 @@
             <div class="apariencia">
                 <h1 class = "inicioH1">Menú gestión</h1>
                 <br><br>
-                <div  class="gestion">
-                    <a href="GestionUsuario.php">
-                        <div class="productos">
-                            <img src="../../IMAGE/administracion/usuario.jpg" alt="Usuario" width="70%" height="70%">
-                            <h3>Usuarios</h3>
-                        </div>
-                    </a>
-                    <a href="GestionProducto.php">
-                        <div class="productos">
-                            <img src="../../IMAGE/administracion/Productos.jpg" alt="Usuario" width="70%" height="70%">
-                            <h3>Usuarios</h3>
-                        </div>
-                    </a>
-                    <a href="GestionComentario.php">
-                        <div class="productos">
-                            <img src="../../IMAGE/administracion/Comentario.jpg" alt="Usuario" width="70%" height="70%">
-                            <h3>Usuarios</h3>
-                        </div>
-                    </a>
+                <div  class="lista">
+                    
                 </div>
             </div>
         </section>

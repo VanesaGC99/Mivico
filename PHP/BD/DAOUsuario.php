@@ -41,4 +41,13 @@
 
         return $query;
     }
+
+    //Listar usuarios
+    function listarUsuarios($conexion){
+        $buscar = "Select * from Usuario";
+
+        $query = mysqli_query($conexion, $buscar);
+
+        return $query;
+    }
 ?>

@@ -50,7 +50,7 @@
                           
                     
                     <div class='navegacion_usuario'>
-                        <div><a href='../Administrador/Gestion/menuGestion.php'>Gestión</a></div>
+                        <div><a href='../Administrador/Gestion/menuGestion.php'>Menú gestión</a></div>
                     </div>";
                 }
                 

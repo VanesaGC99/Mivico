@@ -31,7 +31,7 @@
         </div>
         <div class="navegacion_usuario">
             <div>
-            <div><a href="Gestion/menuGestion.php"> Menu gestión </a></div>
+            <div><a href="Gestion/menuGestion.php"> Menú gestión </a></div>
             </div>
         </div>
     </nav>
