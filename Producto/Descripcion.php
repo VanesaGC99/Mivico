@@ -53,6 +53,7 @@
                     
                     <div class='navegacion_usuario'>
                         <div><a href='../Administrador/Gestion/menuGestion.php'> Menú gestión </a></div>
+                        <div><a href='../Usuario/Perfil/Desloguear.php'>Cerrar sesión</a></div>
                     </div>";
                 }
                 
@@ -98,79 +99,81 @@
                         <p> <?php echo nl2br($fila['Descripcion']); ?></p>
                     </div>
                     <div class="contenidoComentarios">
-                <?php
-                }
-                if(isset($_SESSION['Rol'])){
-
-                ?>
-                
-                    <div class="comentario">
-
                         <div>
-                        <form action="../PHP/Funciones/Comentarios.php" method="post" id="formulario">
-                            <fieldset>
-                            <legend>Añadir comentario</legend>
-                            <p>En los comentarios se pueden poner máximo 500 caracteres: </p>
-                            <textarea name="contenido" rows="3" style= "width: 100%;" maxlength="500"></textarea>
-                            <input type="hidden" name="dni" value="<?php echo $_SESSION['DNI'] ?>" id="dni">
-                            <input type="hidden" name="producto" value="<?php echo $id ?>" id="producto">
-                            <br>
-                            <input type="submit" name="botonComentario" id= "botonComentario" value="Enviar">
-                            </fieldset>
-                        </form>
-                        </div>
-                    </div>
-                <?php
-                }
-                ?>
+                        <?php
+                        }
+                        if(isset($_SESSION['Rol'])){
+
+                        ?>
                     
-                    <div class="comentario">
-                        <div>
-                        <button class="verComentario">Ver comentarios</button>
-                        <br>
-                            <div id="mostrarComentarios" style="display:none">
-                            <?php
-                                //Mostrar comentarios
+                            <div class="comentario">
 
-                                    
-                                    $comentarios = mostrarComentarios($conexion);
-
-                                    while($comentario = mysqli_fetch_array($comentarios)){
-
-                                        $nombreUsuario = buscarDNI($conexion, $comentario['DNI']);
-                                        
-                                        $nombre = mysqli_fetch_assoc($nombreUsuario);
-                                    ?>
-                                    <div>
-
-                                        <div>
-                                        <p><?php echo $nombre['Usuario']; ?></p>
-                                        <p><?php echo $comentario['fechaComentario']; ?></p>
-                                        <p><?php echo $comentario['Contenido']; ?></p>
-                                        </div>
-
-                                        <!-- Menu de opciones para los comentarios -->
-                                        <div class="Menu">
-                                            <div class="titulo botonMenu">
-                                            <p>Opciones</p>
-                                            </div>
-                                            <div class="contenidoMenu">
-                                                <ul>
-                                                    <li><a href="Comentario/ModificarComentario.php">Modificar</a></li>
-                                                    <li><a href="Comentario/EliminarComentario.php">Eliminar</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div>
+                                <form action="../PHP/Funciones/Comentarios.php" method="post" id="formulario">
+                                    <fieldset>
+                                    <legend>Añadir comentario</legend>
+                                    <p>En los comentarios se pueden poner máximo 500 caracteres: </p>
+                                    <textarea name="contenido" rows="3" style= "width: 100%;" maxlength="500"></textarea>
+                                    <input type="hidden" name="dni" value="<?php echo $_SESSION['DNI'] ?>" id="dni">
+                                    <input type="hidden" name="producto" value="<?php echo $id ?>" id="producto">
+                                    <br>
+                                    <input type="submit" name="botonComentario" id= "botonComentario" value="Enviar">
+                                    </fieldset>
+                                </form>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        
+                            <div class="comentario">
+                                <div>
+                                <button class="verComentario">Ver comentarios</button>
+                                <br>
+                                    <div id="mostrarComentarios" style="display:none">
                                     <?php
-                                    
-                                    }
-                                
-                            ?>
+                                        //Mostrar comentarios
+
+                                            
+                                            $comentarios = mostrarComentarios($conexion);
+
+                                            while($comentario = mysqli_fetch_array($comentarios)){
+
+                                                $nombreUsuario = buscarDNI($conexion, $comentario['DNI']);
+                                                
+                                                $nombre = mysqli_fetch_assoc($nombreUsuario);
+                                            ?>
+                                            <div>
+
+                                                <div class="texto">
+                                                <p><strong><?php echo $nombre['Usuario']; ?></strong></p>
+                                                <p><?php echo $comentario['fechaComentario']; ?></p>
+                                                <p><?php echo $comentario['Contenido']; ?></p>
+                                                </div>
+
+                                                <!-- Menu de opciones para los comentarios -->
+                                                <div class="Menu">
+                                                    <div class="titulo botonMenu">
+                                                    <p>Opciones</p>
+                                                    </div>
+                                                    <div class="contenidoMenu">
+                                                        <ul>
+                                                            <li><a href="Comentario/ModificarComentario.php">Modificar</a></li>
+                                                            <li><a href="Comentario/EliminarComentario.php">Eliminar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            
+                                            }
+                                        
+                                    ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php
                 }
                 else{

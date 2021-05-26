@@ -29,20 +29,19 @@
             <div><a href="../../Producto/Producto.php">Catálogo</a></div>
         </div>
         <div class="navegacion_usuario">
-            <div>
             <div><a href="menuGestion.php"> Menú gestión</a></div>
-            </div>
+            <div><a href="../../Usuario/Perfil/Desloguear.php">Cerrar sesión</a></div>
         </div>
     </nav>
     <section>
             <div class="apariencia">
                 <h1 class = "inicioH1">Gestión usuario</h1>
-                <p><a href="menuGestion.php">Menú gestión</a><strong>/</strong><a href="menuGestion.php">Gestión usuario</a></p>
+                <p><a href="menuGestion.php">Menú gestión</a><strong>/</strong><a href="GestionUsuario.php.php">Gestión usuario</a></p>
                 <br><br>
                 <div  class="lista">
                     <div>
-                        <button>Nuevo usuario</button>
-                        <br>
+                        <button class="aparienciaBoton" onclick="location.href='Usuario/AñadirUsuario.php'">Nuevo usuario</button>
+                        <br><br>
                         <table>
                             <tr>
                                 <td><strong>DNI</strong></td>
@@ -73,10 +72,9 @@
             </div>
         </section>
         <footer>
-            <div><a href="../Nosotros.php">Nosotros</a></div>
-            <div><a href="../Contacto.php">Contacto</a></div>
-            <div><a href="../SitioWeb.php">Sitio Web</a></div>
+            <div><a href="../../Nosotros.php">Nosotros</a></div>
+            <div><a href="../../Contacto.php">Contacto</a></div>
+            <div><a href="../../SitioWeb.php">Sitio Web</a></div>
         </footer>
-        <script src='../JS/Slider.js'></script>
 </body>
 </html>

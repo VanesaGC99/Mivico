@@ -26,13 +26,13 @@
                     <div><a href='Usuario/Perfil/Perfil.php'>".$_SESSION['Usuario']."</a></div>
                     <div>
                             <a href='Usuario/Carrito/Carrito.php' class='carrito'>
-                                <img src='IMAGE/shopping-cart-solid.svg' width='30px'>
+                                <img src='IMAGE/shopping-cart-solid.svg' width='10%'>
                                 Carrito
                             </a>
                         </div>
                     </div>";
                 }
-                else if($_SESSION['Rol'] == 'administrador'){
+                else if($_SESSION['Rol'] == 'Administrador'){
                     echo "<div class='navegacion_categoria'>
                         <div><a href='Administrador/Home.php'>Inicio</a></div>
                     </div>
@@ -52,7 +52,7 @@
     </nav>
     <section>
         <div class="apariencia flexible">
-            <div class="imagen"><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="60%"></div>
+            <div class="imagen"><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico"></div>
             <div>
                 <h2>Contacto</h2>
                 <p>En <strong>Mivico</strong> disponemos de un correo el cual se revisa diariamente.</p>

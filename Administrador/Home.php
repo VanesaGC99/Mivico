@@ -30,9 +30,8 @@
             <div><a href="../Producto/Producto.php">Catálogo</a></div>
         </div>
         <div class="navegacion_usuario">
-            <div>
             <div><a href="Gestion/menuGestion.php"> Menú gestión </a></div>
-            </div>
+            <div><a href="../Usuario/Perfil/Desloguear.php">Cerrar sesión</a></div>
         </div>
     </nav>
     <section>

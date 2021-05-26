@@ -104,7 +104,6 @@ section{
     display: flex;
     justify-content: center;
     margin: 1%;
-    height: 100%;
 }
 
 /*Le pone un borde, una sombra, un imagenCorporativa en blanco ahumado, un radio de 10px, un margen interior de 1%, pone flexible y alineado al centro*/
@@ -116,10 +115,9 @@ footer{
     padding: 1%;
     display: flex;
     justify-content: center;
-    width: 90%;
-    margin:3.5%;
-    position: fixed;
-    bottom: 0;
+    width: 88%;
+    margin-left:5%;
+    
 }
 /*le pone un margen interior*/
 footer > div{
@@ -176,6 +174,9 @@ label, input{
     padding: 10px;
 }
 
+label{
+    margin-left: 3%;
+}
 /*le pone un borde color marron de 2 pixeles solido y un radio en el borde de 5 pixeles*/
 input{
     border: rgb(78, 49, 40) 2px solid;
@@ -198,6 +199,7 @@ input{
     
 }
 
+/*Pone flexible el contenedor, le pone espacio y le da un margen de 10px*/
 .contenedor{
     display: flex;
     justify-content: space-around;
@@ -235,11 +237,12 @@ redondea los border y pone un margen interior de 10px*/
     text-align: center;
     padding: 10px;
 }
-
+/*QLe pone una sombra cuando el cursor pase por encima*/
 .productos:hover{
     box-shadow: rgb(78, 49, 40) 2px 2px 5px;
 }
 
+/*Cambia el tamaño del h3*/
 .productos > h3{
     font-size: 100%;
 }
@@ -276,12 +279,12 @@ redondea los border y pone un margen interior de 10px*/
     cursor: pointer;
     width: 8%;
 }
-
+/*Le da un tamaño a la imagen*/
 .left > img{
     width: 50%;
     margin-left: 50%;
 }
-
+/*Le da un tamaño a la imagen*/
 .right > img{
     width: 50%;
 }
@@ -297,7 +300,6 @@ redondea los border y pone un margen interior de 10px*/
 /*Pone flexible la zona*/
 .flexible{
     display: flex;
-    margin: 5%;
 }
 /*Le da tamaño al div y lo pone en bloque*/
 .flexible > div{
@@ -315,7 +317,8 @@ redondea los border y pone un margen interior de 10px*/
 .imagen > img {
     border-radius: 10px;
     box-shadow: grey 2px 2px 5px;
-    width: 40%;
+    width: 300px;
+    height: 300px;
 }
 /*-------PERFIL------*/
 /*Pone un tamaño al menu, un margen de 1%, un margen interior de 1% y un borde derecho marron de 3px solido*/
@@ -342,14 +345,11 @@ redondea los border y pone un margen interior de 10px*/
     display: block;
 }
 /*centrar div*/
-.apariencia > .comentario{
+.apariencia > .contenidoComentarios{
     display:flex;
     justify-content: center;
 }
 /*Le pone un tamaño al div*/
-.comentario > div{
-    width: 40%;
-}
 /*poner a la derecha el botón y poner el cursor como pointer*/
 .comentario form #botonComentario{
     float: right;
@@ -391,89 +391,107 @@ hr{
     cursor:pointer;
     width: 100%; 
 }
-
+/*Lo pone flexible, le da un margen y un margen interno*/
+#mostrarComentarios > div{
+    display: flex;
+    margin-top: 2%;
+    padding: 2%;
+}
+/*Pone un tamaño*/
+#mostrarComentarios div .texto{
+    width: 70%;
+}
 /*Le pone un tamaño, alinea a la derecha y le pone un margen abajo*/
 .Menu{
-    width: 20%;
+    width: 30%;
     float:right;
     margin-bottom: 3px;
 }
 
-/*Cambia el color del fondo y lo pone en negrita*/
-.title:hover{
+/*Cambia el color del fondo, lo pone en negrita, 
+le cambia el color a la letra y la pone centrada*/
+.titulo:hover{
     background-color: rgb(78, 49, 40);
     font-weight: bold;
+    color: whitesmoke;
+    text-align: center;
 }
-/**/
+/*pone el cursor como pointer*/
 .botonMenu:hover{
     cursor:pointer;
 }
+
+/*le pone margen exterior e interior*/
 .contenidoMenu ul{
     margin: 0;
     padding: 0 10px;
 }
+/*Le pone borde al contenido y al boton*/
 .contenidoMenu, .botonMenu{
     border: rgb(78, 49, 40) 2px solid;
 }
 
+/*Le pone margen interior, cambia el color al fondo y le pone un margen exterior*/
 .contenidoMenu{
     padding: 15px 8px;
-    background-color: #fff;
+    background-color:whitesmoke;
     margin-top: -1px;
 }
+
+/*Quita la decoracion de las listas y le pone un margen interior a la izquierda*/
 .contenidoMenu ul li{
     list-style: none;
     padding: 5px 0;
 }
 
-/*centra el div*/
+/*centra el div, lo pone flexible y le da un tamaño*/
 .apariencia > .gestion{
     display: flex;
+    margin: auto;
+    width: 60%;
+}
+/*Centra los enlaces*/
+.gestion > a{
     justify-content: center;
 }
 /*ponerle un tamaño y quitar el float*/
-.gestion > .productos{
+.gestion a .productos{
     float: none;
-    width: 40%;
+    width: 100%;
 }
 /*------ADMINISTRACION------*/
-/*centra el contenido*/
+/*centra el contenido y le pone un tamaño*/
 .lista{
-    display: flex;
-    justify-content: center;
+    margin: auto;
+    width: 70%;
 }
-
+/*Le pone un tamaño al div*/
+.lista > div{
+    width: 100%;
+}
+/*Le pone un tamaño al boton*/
+.lista > button{
+    width: 20%;
+}
 /*fusiona el borde y le pone un margen*/
 .lista table{
     border-collapse: collapse ;
-     width: 50%;
+    width: 100%;
 }
 /*Los separa con un borde*/
 .lista table tr{
     border-bottom: 2px rgb(78, 49, 40) solid;
 }
 
-@media only screen and (max-width: 992px){
-    .imagenInicio{
-        height: 200px;
-    }
-    .productos{
-        width: 40%;
-    }
-    .navegacion_categoria >div{
-        width: 30%;
-    }
-    .navegacion_usuario > div{
-        width: 30%;
-    }
-    #slider{
-        width: 50%;
-        height: 50%;
-        padding: 5px;        
-    }
+.apariencia > .formulario{
+    margin: auto;
+    width: 40%;
+    border: none;
+    box-shadow: none;
 }
 
-@media only screen and (max-width: 800px){
+/*Cambio de estilos para pantallas menores de 992 pixeles*/
+@media only screen and (max-width: 992px){
     html{
         font-size: 12px;
     }
@@ -499,8 +517,43 @@ hr{
     .aparienciaBoton{
         width: 40%;
     }
-    .imagen > img {
+    .flexible{
+        display: block;
+    }
+    .flexible > div{
+        width: 100%;
+        display: block;
+        
+    }
+    /*Centra la imagen en el div*/
+    .flexible > .imagen{
+        display: flex;
+        justify-content: center;
+    }
+    .imagen > img{
+        width: 50%;
+        height: 50%;
+    }
+    input{
+        border: rgb(78, 49, 40) 2px solid;
+        border-radius: 5px;
         width: 90%;
-        height: 200px;
+        height: 20%;
+    }
+    .apariencia > .gestion{
+        display: block;
+    }
+    .lista table{
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+    .left > img{
+        width: 80%;
+        margin-left: 20%;
+    }
+    
+    .right > img{
+        width: 80%;
     }
 }

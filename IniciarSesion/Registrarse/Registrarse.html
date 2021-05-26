@@ -14,7 +14,7 @@
     </header>
     <nav>
         <div class="navegacion_categoria">
-            <div><a href="../index.php">Inicio</a></div>
+            <div><a href="../../">Inicio</a></div>
         </div>
     </nav>
     <section class="centrarContenido">
@@ -26,7 +26,7 @@
             <div>
                 <form action="Registrarse.php" method="POST" id="formulario">
                     <label for="Nombre">Nombre: </label>
-                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="nombre" id="nombre" autofocus autocomplete="none">
                     <br><br>
                     <label for="Apellido1">Apellido 1: </label>
                     <input type="text" name="apellido1" id="apellido1">
@@ -64,7 +64,8 @@
                     <label for="ComunidadAutonoma">Comunidad Autonóma: </label>
                     <input type="text" name="comunidadAutonoma" id="comunidadAutonoma">
                     <br><br>
-                    <input type="submit" value="Iniciar sesión" class="botonFormulario">
+                    <input type="hidden" name="pagina" value="registro">
+                    <input type="submit" value="Registrarse" class="botonFormulario">
                 </form>
             </div>
         </div>

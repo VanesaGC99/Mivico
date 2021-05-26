@@ -51,6 +51,7 @@
                     
                     <div class='navegacion_usuario'>
                         <div><a href='../Administrador/Gestion/menuGestion.php'>Menú gestión</a></div>
+                        <div><a href='../Usuario/Perfil/Desloguear.php'>Cerrar sesión</a></div>
                     </div>";
                 }
                 

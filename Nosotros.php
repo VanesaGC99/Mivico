@@ -33,13 +33,13 @@
                         </div>
                     </div>";
                 }
-                else if($_SESSION['Rol'] == 'administrador'){
+                else if($_SESSION['Rol'] == 'Administrador'){
                     echo "<div class='navegacion_categoria'>
                         <div><a href='Administrador/Home.php'>Inicio</a></div>
                     </div>
                     
                     <div class='navegacion_usuario'>
-                        <div><a href='Administrador/Gestion/Gestion.php'>Gestión</a></div>
+                        <div><a href='Administrador/Gestion/menuGestion.php'>Gestión</a></div>
                     </div>";
                 }
                 
@@ -53,7 +53,7 @@
     </nav>
     <section>
         <div class="apariencia flexible">
-            <div class="imagen"><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico" width="60%"></div>
+            <div class="imagen"><img src="IMAGE/logotipo.png" alt="Logotipo de Mivico"></div>
             <div>
             <h2>¿Que es Mivico?</h2>
             <p>El nombre de <b>Mivico</b> proviene de <i>Mi vida eco</i>.</p>

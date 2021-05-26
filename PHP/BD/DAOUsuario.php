@@ -17,22 +17,26 @@
             echo "$atributo : $valor <br>";
         }
     }
-    /*
-    //Insertar datos de productos
-    function insertar(){
+    
+    //Insertar usuario
+    function insertarUsuario($conexion, $dni, $nombre, $apellido1, $apellido2, $usuario, $password, $email, $telefono, $direccion, $codigoP, $provincia, $comunidadA){
+        $insert = "Insert into Usuario value ('$dni', '$nombre', '$apellido1', '$apellido2', '$usuario', '$password', '$email', '$telefono', '$direccion', '$codigoP', '$provincia', '$comunidadA','Usuario','0')";
+        
+        $query = mysqli_query($conexion, $insert);
+        
+        return $query;
+    }
+
+    //Eliminar usuario
+    function eliminarUsuario(){
 
     }
 
-    //Eliminar datos de productos
-    function eliminar(){
+    //Modificar usuario
+    function modificarUsuario(){
 
     }
 
-    //Modificar datos de productos
-    function modificar(){
-
-    }
-*/
     //Buscar usuario por DNI
     function buscarDNI($conexion, $dni){
         $buscar = "Select * from Usuario where DNI = '$dni'";

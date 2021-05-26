@@ -29,9 +29,8 @@
             <div><a href="../../Producto/Producto.php">Catálogo</a></div>
         </div>
         <div class="navegacion_usuario">
-            <div>
             <div><a href="menuGestion.php"> Menú gestión</a></div>
-            </div>
+            <div><a href="../../Usuario/Perfil/Desloguear.php">Cerrar sesión</a></div>
         </div>
     </nav>
     <section>
@@ -48,6 +47,6 @@
             <div><a href="../Contacto.php">Contacto</a></div>
             <div><a href="../SitioWeb.php">Sitio Web</a></div>
         </footer>
-        <script src='../JS/Slider.js'></script>
+    
 </body>
 </html>
