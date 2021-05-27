@@ -34,19 +34,12 @@
         </div>
     </nav>
     <section>
-            <div class="apariencia">
-                <h1 class = "inicioH1">Menú gestión</h1>
-                <br><br>
-                <div class="lista">
-                    
-                </div>
-            </div>
-        </section>
-        <footer>
-            <div><a href="../Nosotros.php">Nosotros</a></div>
-            <div><a href="../Contacto.php">Contacto</a></div>
-            <div><a href="../SitioWeb.php">Sitio Web</a></div>
-        </footer>
-    
+            
+    </section>
+    <footer>
+        <div><a href="../Nosotros.php">Nosotros</a></div>
+        <div><a href="../Contacto.php">Contacto</a></div>
+        <div><a href="../SitioWeb.php">Sitio Web</a></div>
+    </footer>
 </body>
 </html>
