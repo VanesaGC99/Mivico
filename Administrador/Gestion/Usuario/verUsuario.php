@@ -5,5 +5,11 @@
 
   $id = $_GET['id'];
   
-  $usuario = 
+  $usuario = buscarDNI($conexion, $dni);
+  
+  if(mysqli_num_rows($usuario)){
+    while($fila = mysqli_fetch_assoc($usuario)){
+      
+    }
+  }
 ?>
