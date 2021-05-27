@@ -6,7 +6,7 @@
     }
 
     require '../../PHP/ConectarBD.php';
-    require '../../PHP/BD/DAOProducto.php';
+    require '../../PHP/BD/DAOComentario.php';
     $conexion = conectar();
 
 ?>
@@ -34,12 +34,45 @@
         </div>
     </nav>
     <section>
-            
+        <div class="apariencia">
+            <h1 class = "inicioH1">Gestión usuario</h1>
+            <p><a href="menuGestion.php">Menú gestión</a><strong>/</strong><a href="GestionUsuario.php.php">Gestión usuario</a></p>
+            <br><br>
+            <div  class="lista">
+                <div>
+                    <table>
+                        <tr>
+                            <td><strong>DNI</strong></td>
+                            <td><strong>Producto</strong></td>
+                            <td><strong>Fecha</strong></td>
+                            <td><strong>Contenido</strong></td>
+                        </tr>
+                    <?php
+                        $lista = listarComentarios($conexion);
+
+                        while($fila = mysqli_fetch_array($lista)){
+                            ?>
+                                <tr>
+                                    <td><?php echo $fila['DNI']?></td>
+                                    <td><?php echo $fila['ipProducto']?></td>
+                                    <td><?php echo $fila['fechaComentario']?></td>
+                                    <td><?php echo $fila['Contenido']?></td>
+                                    <td><a href="Comentario/verComentario.php">Ver</a></td>
+                                    <td><a href="Comentario/Editar.php">Editar</a></td>
+                                    <td><a href="Comentario/Eliminar.php">Eliminar</a></td>
+                                </tr>
+                            <?php
+                        }
+                    ?>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
     <footer>
-        <div><a href="../Nosotros.php">Nosotros</a></div>
-        <div><a href="../Contacto.php">Contacto</a></div>
-        <div><a href="../SitioWeb.php">Sitio Web</a></div>
+        <div><a href="../../Nosotros.php">Nosotros</a></div>
+        <div><a href="../../Contacto.php">Contacto</a></div>
+        <div><a href="../../SitioWeb.php">Sitio Web</a></div>
     </footer>
 </body>
 </html>
