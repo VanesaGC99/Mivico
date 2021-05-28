@@ -36,13 +36,13 @@
     <section class="centrarContenido">
         <div class="apariencia">
             <h1 class="inicioH1">Añadir usuario</h1>
-            <p><a href="../menuGestion.php">Menú gestión</a><strong>/</strong><a href="../GestionUsuario.php">Gestión usuario</a><strong>/</strong><a href="AñadirUsuario.php.php">Añadir usuario</a></p>
+            <p><a href="../menuGestion.php">Menú gestión</a><strong>/</strong><a href="../GestionUsuario.php">Gestión usuario</a><strong>/</strong><a href="AñadirUsuario.php">Añadir usuario</a></p>
             <br><br>
             <div class="formulario">
                 <div>
-                    <form action="../../../IniciarSesion/Registrarse/Registrarse.php" method="POST" id="formulario">
+                    <form action="../../../IniciarSesion/Registrarse/Registrarse.php" method="POST" id="formulario" autocomplete="off">
                         <label for="Nombre">Nombre: </label>
-                        <input type="text" name="nombre" id="nombre" autofocus>
+                        <input type="text" name="nombre" id="nombre" autofocus >
                         <br><br>
                         <label for="Apellido1">Apellido 1: </label>
                         <input type="text" name="apellido1" id="apellido1">

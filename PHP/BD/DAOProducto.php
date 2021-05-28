@@ -29,15 +29,16 @@
        return $arrayImagenes;
     }
 
-    function insertar(){
+    //Funcion para 
+    function insertarProducto($conexion, $nombre, $tipo, $precio, $stock, $imagen, $descripcion){
+        $insertar = "Insert into Producto (Nombre, Tipo, Descripcion, Precio, Stock, Imagen, likes) value ('$nombre', '$tipo', '$descripcion', '$precio', '$stock', 'productos/$imagen', '0')";
+    }
+
+    function eliminarProducto(){
 
     }
 
-    function eliminar(){
-
-    }
-
-    function modificar(){
+    function modificarProducto(){
 
     }
 

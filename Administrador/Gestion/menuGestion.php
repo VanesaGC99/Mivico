@@ -47,13 +47,13 @@
                     <a href="GestionProducto.php">
                         <div class="productos">
                             <img src="../../IMAGE/administracion/Productos.jpg" alt="Usuario" width="70%" height="70%">
-                            <h3>Usuarios</h3>
+                            <h3>Productos</h3>
                         </div>
                     </a>
                     <a href="GestionComentario.php">
                         <div class="productos">
                             <img src="../../IMAGE/administracion/Comentario.jpg" alt="Usuario" width="70%" height="70%">
-                            <h3>Usuarios</h3>
+                            <h3>Comentarios</h3>
                         </div>
                     </a>
                 </div>
