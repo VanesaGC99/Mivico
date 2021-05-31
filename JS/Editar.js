@@ -7,12 +7,12 @@ const expresiones ={
     nombre:/^[A-Za-zÁ-ÿ\s]{2,45}$/,
     apellido:/^[A-Za-zÁ-ÿ\s]{2,45}$/,
     usuario:/^[A-Za-z1-9]{6,20}$/,
-    password:/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&€¿?¡#])[A-Za-z\d$@$!%*?&]{8,45}$/,
+    password:/^[A-Za-z1-9]{6,20}$/,
     dni:/^\d{8}[A-Z]{1}$/,
     email:/\S+@\S+\.\S+/,
     codigoP:/([0-5][0-9][0-9][0-9][0-9])/,
     telefono:/^(6|7)[0-9]{8}$/,
-    direccion:/^[A-Za-zÁ-ÿ\s]{2,150}$/,
+    direccion:/^[A-Za-zÁ-ÿ0-9\s\/]{2,150}$/,
     
     titulo: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
     compañia: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
@@ -39,7 +39,7 @@ const validado = {
     codigoP: false,
     telefono: false,
     provincia: false,
-    comunidadA: false,
+    comunidadAutonoma: false,
 
     titulo: false,
     compañia: false,
@@ -104,7 +104,7 @@ const validarFormulario = (e) =>{
         case "email":
             validarCampo(expresiones.email, email.value, 'email');
         break;
-        case "codigo":
+        case "codigoP":
             validarCampo(expresiones.codigoP, codigoP.value, 'codigoP');
             validarProvincia();
             validarComunidad();
@@ -152,14 +152,12 @@ const validarCampo = (expresion, valor, campoValidar) =>{
 
     if(expresion.test(valor)){
         console.log("correcto");
-        error.classList.add("ocultar");
-        error.classList.remove("mostrar");
+        document.getElementById(campoValidar).style.border="green 2px solid";
         validado[campoValidar]= true;
     }
     else{
         console.log("incorrecto");
-        error.classList.add("mostrar");
-        error.classList.remove("ocultar");
+        document.getElementById(campoValidar).style.border="red 2px solid";
         validado[campoValidar]= false;
     }
 }
@@ -169,14 +167,12 @@ function repetirContraseña(pass1, pass2){
     
     if(pass1==pass2){
         console.log("correcto");
-        error.classList.add("ocultar");
-        error.classList.remove("mostrar");
+        document.getElementById("rePassword").style.border="green 2px solid";
         validado['rePassword'] = true;
     }
     else{
         console.log("incorrecto");
-        error.classList.add("mostrar");
-        error.classList.remove("ocultar");
+        document.getElementById("rePassword").style.border="red 2px solid";
         validado['rePassword']= false;
     }
 }
@@ -190,13 +186,11 @@ function comprobarDNI(dni, mensaje){
     let error = document.getElementById(mensaje);
 
     if(letra == letraCorrecta){
-        error.classList.add("ocultar");
-        error.classList.remove("mostrar");
+        document.getElementById("dni").style.border="green 2px solid";
         validado['dni'] = true;
     }
     else{
-        error.classList.add("mostrar");
-        error.classList.remove("ocultar");
+        document.getElementById("dni").style.border="red 2px solid";
         validado['dni'] = false;
     }
 }
@@ -204,17 +198,21 @@ function comprobarDNI(dni, mensaje){
 //Validar la provincia y la comunidad Autonoma
 function validarProvincia(){
     let provincia = document.getElementById("provincia");
-    let codigoP = document.getElementById("codigoP").value;
-    let inicialesCodigoP = codigopostal[parseInt(codigoP.substring(0,2))];
-    let comunidadA = document.getElementById("comunidadA");
+    let codigo = document.getElementById("codigoP").value;
+    let inicialesCodigoP = codigopostal[parseInt(codigo.substring(0,2))];
 
+    if(inicialesCodigoP == ""){
+        provincia.value = "";
+    }
+    else{
     provincia.value = inicialesCodigoP;
     validado.provincia = true;
+    }
 }
 
 function validarComunidad(){
     let provincia = document.getElementById("provincia");
-    let comunidadA = document.getElementById("comunidadA");
+    let comunidadA = document.getElementById("comunidadAutonoma");
     let valor = provincia.value;
 
     if(provincia.value == "Las Palmas"){
@@ -257,18 +255,9 @@ formulario.addEventListener('submit', (e) =>{
 
     if(validar != 0){
         console.log("los campos a validar y los campos validados son iguales");
-        document.getElementById("mensaje_error").classList.remove("mostrar");
-        document.getElementById("mensaje_error").classList.add("ocultar");
-        document.getElementById("mensaje_correcto").classList.add("mostrar");
-        document.getElementById("mensaje_correcto").classList.remove("ocultar");
         formulario.submit();
     }   
     else{
         console.log("no son iguales");
-        document.getElementById("mensaje_error").classList.add("mostrar");
-        document.getElementById("mensaje_error").classList.remove("ocultar");
-        document.getElementById("mensaje_correcto").classList.remove("mostrar");
-        document.getElementById("mensaje_correcto").classList.add("ocultar");
-        
     }
 })

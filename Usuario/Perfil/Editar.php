@@ -50,7 +50,7 @@
                     <h2 class = "inicioH2 tituloPerfil">Editar</h2>
                     <hr>
                     <br>
-                    <form action="" method="POST" id="formulario">
+                    <form action="Acciones/Editar.php" method="POST" id="formulario">
                         <label for="Nombre">Nombre: </label>
                         <input type="text" name="nombre" id="nombre" value='<?php echo $_SESSION['Nombre']?>'>
                         <br><br>
@@ -82,7 +82,7 @@
                         <input type="text" name="direccion" id="direccion" value='<?php echo $_SESSION['Dirección']?>'>
                         <br><br>
                         <label for="CP">Código Postal: </label>
-                        <input type="text" name="codigo" id="codigo" value='<?php echo $_SESSION['CP']?>'>
+                        <input type="text" name="codigoP" id="codigoP" value='<?php echo $_SESSION['CP']?>'>
                         <br><br>
                         <label for="Provincia">Provincia: </label>
                         <input type="text" name="provincia" id="provincia" value='<?php echo $_SESSION['Provincia']?>'>
@@ -90,7 +90,8 @@
                         <label for="ComunidadAutonoma">Comunidad Autonóma: </label>
                         <input type="text" name="comunidadAutonoma" id="comunidadAutonoma" value='<?php echo $_SESSION['ComunidadAutonoma']?>'>
                         <br><br>
-                        <input type="submit" value="Moificar datos" class="botonFormulario">
+                        <input type="hidden" name="pagina" value="registro">
+                        <input type="submit" value="Moificar datos" class="botonFormulario" name>
                     </form>
                 </div>
             </div>
@@ -100,5 +101,6 @@
             <div><a href="../../Contacto.php">Contacto</a></div>
             <div><a href="../../SitioWeb.php">Sitio Web</a></div>
         </footer>
+        <script src="../../JS/Editar.js"></script>
 </body>
 </html>

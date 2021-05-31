@@ -72,7 +72,7 @@
                         <input type="text" name="direccion" id="direccion">
                         <br><br>
                         <label for="CP">Código Postal: </label>
-                        <input type="text" name="codigo" id="codigo">
+                        <input type="text" name="codigoP" id="codigoP">
                         <br><br>
                         <label for="Provincia">Provincia: </label>
                         <input type="text" name="provincia" id="provincia">
@@ -92,5 +92,7 @@
             <div><a href="../../../Contacto.php">Contacto</a></div>
             <div><a href="../../../SitioWeb.php">Sitio Web</a></div>
         </footer>
+        <script src="../../../JS/formularios.js"></script>
+        
 </body>
 </html>

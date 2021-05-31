@@ -33,8 +33,52 @@
     }
 
     //Modificar usuario
-    function modificarUsuario(){
+    function modificarUsuario($conexion, $dni, $nombre, $apellido1, $apellido2, $usuario, $password, $email, $telefono, $direccion, $codigoP, $provincia, $comunidadA){
+        
+        if($nombre != ""){
+            $update = "Update Usuario set Nombre = '$nombre' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
 
+        }else if($apellido1 != ""){
+            $update = "Update Usuario set Apellido1 = '$apellido1' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($apellido2 != ""){
+            $update = "Update Usuario set Apellido2 = '$apellido2' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($usuario != ""){
+            $update = "Update Usuario set Usuario = '$usuario' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($password != ""){
+            $update = "Update Usuario set Password = '$password' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($email != ""){
+            $update = "Update Usuario set Email = '$email' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($telefono != ""){
+            $update = "Update Usuario set Telefono = '$telefono' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($codigoP != ""){
+            $update = "Update Usuario set CP = '$codigoP' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($provincia != ""){
+            $update = "Update Usuario set Provincia = '$provincia' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else if($comunidadA != ""){
+            $update = "Update Usuario set ComunidadAutonoma = '$comunidadA' where DNI = '$dni'";
+            $query = mysqli_query($conexion,$update);
+
+        }else{
+            return false;
+        }
+        return $query;
     }
 
     //Buscar usuario por DNI

@@ -74,5 +74,6 @@
             <div><a href="../../../SitioWeb.php">Sitio Web</a></div>
         </footer>
         <script src="../../../JS/richText.js"></script>
+        <script src="../../../JS/formularios.js"></script>
 </body>
 </html>

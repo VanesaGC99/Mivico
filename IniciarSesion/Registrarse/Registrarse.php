@@ -16,7 +16,7 @@
     $email =$_POST['email'];
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
-    $codigoP = $_POST['codigo'];
+    $codigoP = $_POST['codigoP'];
     $provincia = $_POST['provincia'];
     $comunidadA = $_POST['comunidadAutonoma'];
 

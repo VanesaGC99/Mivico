@@ -42,53 +42,68 @@
                 <div>
                     <?php
                         if(isset($_GET['dni'])){
+                            $dni = $_GET['dni'];
                             $usuario = buscarDNI($conexion, $dni);
                         
-                            while($fila = mysqli_num_rows($usuario)){
+                            while($fila = mysqli_fetch_array($usuario)){
 
                     ?>
                     <form action="../../../IniciarSesion/Registrarse/Registrarse.php" method="POST" id="formulario" autocomplete="off">
                         <label for="Nombre">Nombre: </label>
-                        <input type="text" name="nombre" id="nombre" autofocus value="<?php echo $_?>">
+                        <input type="text" name="nombre" id="nombre" autofocus value="<?php echo $fila['Nombre']?>">
                         <br><br>
                         <label for="Apellido1">Apellido 1: </label>
-                        <input type="text" name="apellido1" id="apellido1">
+                        <input type="text" name="apellido1" id="apellido1" value="<?php echo $fila['Apellido1']?>">
                         <br><br>
                         <label for="Apellido2">Apellido 2: </label>
-                        <input type="text" name="apellido2" id="apellido2">
+                        <input type="text" name="apellido2" id="apellido2" value="<?php echo $fila['Apellido2']?>">
                         <br><br>
                         <label for="DNI">DNI: </label>
-                        <input type="text" name="dni" id="dni">
+                        <input type="text" name="dni" id="dni" value="<?php echo $fila['DNI']?>">
                         <br><br>
                         <label for="Usuario">Usuario: </label>
-                        <input type="text" name="usuario" id="usuario">
+                        <input type="text" name="usuario" id="usuario" value="<?php echo $fila['Usuario']?>">
                         <br><br>
                         <label for="Password">Contraseña: </label>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" value="<?php echo $fila['Password']?>">
                         <br><br>
                         <label for="rePassword">Repetir Contraseña: </label>
-                        <input type="password" name="rePassword" id="rePassword">
+                        <input type="password" name="rePassword" id="rePassword" value="<?php echo $fila['Password']?>">
                         <br><br>
                         <label for="email">Email: </label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email"  value="<?php echo $fila['Email']?>">
                         <br><br>
                         <label for="Telefono">Teléfono: </label>
-                        <input type="text" name="telefono" id="telefono">
+                        <input type="text" name="telefono" id="telefono"  value="<?php echo $fila['Telefono']?>">
                         <br><br>
-                        <label for="Direccion" style="overflow-x:auto;">Dirección: </label>
-                        <input type="text" name="direccion" id="direccion">
+                        <label for="Direccion" >Dirección: </label>
+                        <input type="text" name="direccion" id="direccion" style="overflow-x:auto;" value="<?php echo $fila['Dirección']?>">
                         <br><br>
                         <label for="CP">Código Postal: </label>
-                        <input type="text" name="codigo" id="codigo">
+                        <input type="text" name="codigoP" id="codigoP" value="<?php echo $fila['CP']?>">
                         <br><br>
                         <label for="Provincia">Provincia: </label>
-                        <input type="text" name="provincia" id="provincia">
+                        <input type="text" name="provincia" id="provincia" value="<?php echo $fila['Provincia']?>">
                         <br><br>
                         <label for="ComunidadAutonoma">Comunidad Autonóma: </label>
-                        <input type="text" name="comunidadAutonoma" id="comunidadAutonoma">
+                        <input type="text" name="comunidadAutonoma" id="comunidadAutonoma" value="<?php echo $fila['ComunidadAutonoma']?>">
+                        <br><br>
+                        <label for="Rol">Administrador: </label>
+                        <?php
+                            if($fila['Rol'] == "Administrador"){
+                        ?>
+                            <input type="checkbox" name="rol" id="rol" checked>
+                        <?php
+                            }
+                            else{
+                        ?>
+                            <input type="checkbox" name="rol" id="rol">
+                        <?php
+                            }
+                        ?>
                         <br><br>
                         <input type="hidden" name="pagina" value="administracion">
-                        <input type="submit" value="Añadir usuario" class="botonFormulario">
+                        <input type="submit" value="Editar usuario" class="botonFormulario">
                     </form>
                     <?php
                             }

@@ -42,7 +42,7 @@
             <div class="apariencia flexible">
                 <div class="menu">
                     <p><a href="Perfil.php">Mi Perfil<a></p>
-                    <p><a href="Eliminar.php">Editar</a></p>
+                    <p><a href="Editar.php">Editar</a></p>
                     <p><a class="seleccionado">Eliminar</a></p>
                     <p><a href="Desloguear.php">Cerrar sesión</a></p>
                 </div>
