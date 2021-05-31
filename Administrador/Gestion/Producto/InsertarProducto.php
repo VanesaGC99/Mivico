@@ -2,6 +2,7 @@
     require '../../../PHP/ConectarBD.php';
     require '../../../PHP/BD/DAOProducto.php';
     $conexion = conectar();
+
     //Datos del formulario
     $nombre = $_POST['nombre'];
     $tipo = $_POST['tipo'];
@@ -16,7 +17,13 @@
 
     $insertar = insertarProducto($conexion, $nombre, $tipo, $precio, $stock, $imagen, $descripcion);
 
-
-    //mover la imagen del directorio temporal al server
-    move_uploaded_file($_FILES['imagen']['tmp_name'],$carpeta_destino.$imagen);
+    if($insertar){
+        //mover la imagen del directorio temporal al server
+        move_uploaded_file($_FILES['imagen']['tmp_name'],$carpeta_destino.$imagen);
+        header('Location: ../GestionProducto.php');
+    }
+    else{
+        header('Location: AñadirProducto.php');
+    }
+    
 ?>

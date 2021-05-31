@@ -32,6 +32,10 @@
     //Funcion para 
     function insertarProducto($conexion, $nombre, $tipo, $precio, $stock, $imagen, $descripcion){
         $insertar = "Insert into Producto (Nombre, Tipo, Descripcion, Precio, Stock, Imagen, likes) value ('$nombre', '$tipo', '$descripcion', '$precio', '$stock', 'productos/$imagen', '0')";
+
+        $query = mysqli_query($conexion, $insertar);
+
+        return $query;
     }
 
     function eliminarProducto(){
@@ -52,4 +56,5 @@
 
         return $query;
     }
+
 ?>

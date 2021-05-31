@@ -59,7 +59,7 @@
                                         <td><?php echo $fila['Nombre']?></td>
                                         <td><?php echo $fila['Tipo']?></td>
                                         <td><?php echo $fila['Stock']?></td>
-                                        <td><a href="Producto/verProducto.php">Ver</a></td>
+                                        <td><a href="../../Producto/Descripcion.php?id=<?php echo $fila['idProducto']?>">Ver</a></td>
                                         <td><a href="Producto/Editar.php">Editar</a></td>
                                         <td><a href="PRoducto/Eliminar.php">Eliminar</a></td>
                                     </tr>

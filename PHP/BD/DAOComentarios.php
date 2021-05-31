@@ -2,13 +2,17 @@
 
     //Buscar comentarios
 
-    function mostrarComentarios($conexion){
+    function mostrarComentarios($conexion, $producto){
 
-        $comentarios = "Select * from Comentario";
+        if($producto == "todo" || $producto == ""){
+            $productos= "Select * from Comentario";
+        }
+        else{
+            $productos= "Select * from Comentario where idProducto = '$producto'";
+        }
+        $mostrar = mysqli_query($conexion, $productos);
 
-        $query = mysqli_query($conexion, $comentarios);
-
-        return $query;
+        return $mostrar;
     }
 
     //Insertar un comentario

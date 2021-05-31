@@ -6,8 +6,10 @@
     }
 
     require '../../PHP/ConectarBD.php';
-    require '../../PHP/BD/DAOComentario.php';
+    require '../../PHP/BD/DAOComentarios.php';
+    require '../../PHP/BD/DAOProducto.php';
     $conexion = conectar();
+
 
 ?>
 <!DOCTYPE html>
@@ -35,9 +37,25 @@
     </nav>
     <section>
         <div class="apariencia">
-            <h1 class = "inicioH1">Gestión usuario</h1>
-            <p><a href="menuGestion.php">Menú gestión</a><strong>/</strong><a href="GestionUsuario.php.php">Gestión usuario</a></p>
+            <h1 class = "inicioH1">Gestión comentarios</h1>
+            <p><a href="menuGestion.php">Menú gestión</a><strong>/</strong><a href="GestionComentario.php">Gestión comentario</a></p>
             <br><br>
+            <div class="busqueda">
+                    <form method= "POST">
+                        <span>Buscar por producto: </span>
+                        <select name="filtro" id="filtro" onchange='submit()'>
+                            <option value="ninguna">Busqueda</option>
+                            <option value="todo">Todo</option>
+                            <?php
+                                $productos = catalogo($conexion, "todo");
+                                
+                                while($select  =  mysqli_fetch_array($productos)){
+                                    echo "<option value='". $select['idProducto'] ."'>". $select['Nombre'] ."</option>";
+                                }
+                            ?>
+                        </select>
+                    </form>
+                </div>
             <div  class="lista">
                 <div>
                     <table>
@@ -48,15 +66,32 @@
                             <td><strong>Contenido</strong></td>
                         </tr>
                     <?php
-                        $lista = listarComentarios($conexion);
+
+                        if(isset($_POST['filtro'])){
+                            $nombre = $_POST['filtro'];
+                        }
+                        else{
+                            $nombre = "";
+                        }
+
+
+                        $lista = mostrarComentarios($conexion, $nombre);
 
                         while($fila = mysqli_fetch_array($lista)){
+                            $miniComentario =  substr($fila['Contenido'], 0, 60);
                             ?>
                                 <tr>
                                     <td><?php echo $fila['DNI']?></td>
-                                    <td><?php echo $fila['ipProducto']?></td>
+                                    <?php
+                                    $id = $fila['idProducto'];
+                                    $buscar = buscarProducto($conexion, $id);
+
+                                    $buscarProducto = mysqli_fetch_assoc($buscar);
+
+                                    echo "<td> ".$buscarProducto['Nombre']."</td>";
+                                    ?>
                                     <td><?php echo $fila['fechaComentario']?></td>
-                                    <td><?php echo $fila['Contenido']?></td>
+                                    <td><?php echo $miniComentario?></td>
                                     <td><a href="Comentario/verComentario.php">Ver</a></td>
                                     <td><a href="Comentario/Editar.php">Editar</a></td>
                                     <td><a href="Comentario/Eliminar.php">Eliminar</a></td>

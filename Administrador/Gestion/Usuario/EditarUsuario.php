@@ -35,14 +35,21 @@
     </nav>
     <section class="centrarContenido">
         <div class="apariencia">
-            <h1 class="inicioH1">Añadir usuario</h1>
-            <p><a href="../menuGestion.php">Menú gestión</a><strong>/</strong><a href="../GestionUsuario.php">Gestión usuario</a><strong>/</strong><a href="AñadirUsuario.php">Añadir usuario</a></p>
+            <h1 class="inicioH1">Editar usuario</h1>
+            <p><a href="../menuGestion.php">Menú gestión</a><strong>/</strong><a href="../GestionUsuario.php">Gestión usuario</a><strong>/</strong><a href="EditarUsuario.php">Editar usuario</a></p>
             <br><br>
             <div class="formulario">
                 <div>
+                    <?php
+                        if(isset($_GET['dni'])){
+                            $usuario = buscarDNI($conexion, $dni);
+                        
+                            while($fila = mysqli_num_rows($usuario)){
+
+                    ?>
                     <form action="../../../IniciarSesion/Registrarse/Registrarse.php" method="POST" id="formulario" autocomplete="off">
                         <label for="Nombre">Nombre: </label>
-                        <input type="text" name="nombre" id="nombre" autofocus >
+                        <input type="text" name="nombre" id="nombre" autofocus value="<?php echo $_?>">
                         <br><br>
                         <label for="Apellido1">Apellido 1: </label>
                         <input type="text" name="apellido1" id="apellido1">
@@ -68,7 +75,7 @@
                         <label for="Telefono">Teléfono: </label>
                         <input type="text" name="telefono" id="telefono">
                         <br><br>
-                        <label for="Direccion">Dirección: </label>
+                        <label for="Direccion" style="overflow-x:auto;">Dirección: </label>
                         <input type="text" name="direccion" id="direccion">
                         <br><br>
                         <label for="CP">Código Postal: </label>
@@ -83,6 +90,10 @@
                         <input type="hidden" name="pagina" value="administracion">
                         <input type="submit" value="Añadir usuario" class="botonFormulario">
                     </form>
+                    <?php
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -92,5 +103,6 @@
             <div><a href="../../../Contacto.php">Contacto</a></div>
             <div><a href="../../../SitioWeb.php">Sitio Web</a></div>
         </footer>
+        <script src="../../../JS/EditarUsuario.js"></script>
 </body>
 </html>
