@@ -483,12 +483,19 @@ le cambia el color a la letra y la pone centrada*/
     border-bottom: 2px rgb(78, 49, 40) solid;
 }
 
+/*centra el formulario, le da un tamaño, le quita el borde y le quita la sombra*/
 .apariencia > .formulario{
     margin: auto;
     width: 40%;
     border: none;
     box-shadow: none;
 }
+
+/*tamaño carrito*/
+.carritoImagen{
+    width: 20%;
+}
+
 
 /*Cambio de estilos para pantallas menores de 992 pixeles*/
 @media only screen and (max-width: 992px){
@@ -555,5 +562,8 @@ le cambia el color a la letra y la pone centrada*/
     
     .right > img{
         width: 80%;
+    }
+    .carritoImagen{
+        width: 0%;
     }
 }

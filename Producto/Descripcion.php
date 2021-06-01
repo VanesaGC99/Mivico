@@ -38,7 +38,7 @@
                     <div><a href='../Usuario/Perfil/Perfil.php'> ". $_SESSION['Usuario']."</a></div>
                     <div>
                             <a href='Carrito/Carrito.php' class='carrito'>
-                                <img src='../IMAGE/shopping-cart-solid.svg' width='30px'>
+                                <img src='../IMAGE/shopping-cart-solid.svg' class='carritoImagen'>
                                 Carrito
                             </a>
                         </div>
