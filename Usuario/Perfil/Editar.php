@@ -61,7 +61,9 @@
                         <input type="text" name="apellido2" id="apellido2" value='<?php echo $_SESSION['Apellido2']?>'>
                         <br><br>
                         <label for="DNI">DNI: </label>
-                        <input type="text" name="dni" id="dni" value='<?php echo $_SESSION['DNI']?>'>
+                        <abbr title="No se puede modificar el DNI, puesto que es un campo clave" >
+                            <input type="text" name="dni" id="dni" value='<?php echo $_SESSION['DNI']?>' readonly>
+                        </abbr>
                         <br><br>
                         <label for="Usuario">Usuario: </label>
                         <input type="text" name="usuario" id="usuario" value='<?php echo $_SESSION['Usuario']?>'>
@@ -91,6 +93,7 @@
                         <input type="text" name="comunidadAutonoma" id="comunidadAutonoma" value='<?php echo $_SESSION['ComunidadAutonoma']?>'>
                         <br><br>
                         <input type="hidden" name="pagina" value="registro">
+                        <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['DNI'] ?>">
                         <input type="submit" value="Moificar datos" class="botonFormulario" name>
                     </form>
                 </div>

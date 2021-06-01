@@ -12,6 +12,7 @@ const expresiones ={
     email:/\S+@\S+\.\S+/,
     codigoP:/([0-5][0-9][0-9][0-9][0-9])/,
     telefono:/^(6|7)[0-9]{8}$/,
+    direccion:/^[A-Za-zÁ-ÿ0-9\s\/]{2,150}$/,
     
     titulo: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
     compañia: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
@@ -39,18 +40,7 @@ const validado = {
     telefono: false,
     provincia: false,
     comunidadA: false,
-
-    titulo: false,
-    compañia: false,
-    publicacion:false,
-    descripcion:false,
-    imagen: false,
-
-    lanzamiento: false,
-    logo:false,
-    precio:false,
-    stock:false,
-
+    direccion:false,
 }
 
 //codigo postal de cada provincia
@@ -108,9 +98,6 @@ const validarFormulario = (e) =>{
         break;
         case "telefono":
             validarCampo(expresiones.telefono, telefono.value, 'telefono');
-        break;
-        case "email":
-            validarCampo(expresiones.email, email.value, 'email');
         break;
         case "direccion":
             validarCampo(expresiones.direccion, direccion.value, 'direccion');
@@ -180,7 +167,6 @@ function comprobarDNI(dni, mensaje){
     let num= dni.substring(0,8);
     let letrasDNI=['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
     let letraCorrecta = letrasDNI[num%23];
-    let error = document.getElementById(mensaje);
 
     if(letra == letraCorrecta){
         document.getElementById("dni").style.border="green 2px solid";
@@ -198,13 +184,8 @@ function validarProvincia(){
     let codigo = document.getElementById("codigoP").value;
     let inicialesCodigoP = codigopostal[parseInt(codigo.substring(0,2))];
 
-    if(inicialesCodigoP == ""){
-        provincia.value = "";
-    }
-    else{
     provincia.value = inicialesCodigoP;
     validado.provincia = true;
-    }
 }
 
 function validarComunidad(){
@@ -241,11 +222,12 @@ inputs.forEach((input) =>{
 formulario.addEventListener('submit', (e) =>{
     e.preventDefault();
 
-    let campos = inputs.length -1;
+    let campos = inputs.length -2;
     let validar= 0;
 
     for(let i = 0; i < inputs.length; i++){
         if(validado[inputs[i].name]){
+            console.log
             validar++;
         }
     }
@@ -256,6 +238,7 @@ formulario.addEventListener('submit', (e) =>{
     }   
     else{
         console.log("no son iguales");
-        
+        console.log(campos+" == " +validar)
+    
     }
 })

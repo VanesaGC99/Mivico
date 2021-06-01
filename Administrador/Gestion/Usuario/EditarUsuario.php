@@ -48,7 +48,7 @@
                             while($fila = mysqli_fetch_array($usuario)){
 
                     ?>
-                    <form action="../../../IniciarSesion/Registrarse/Registrarse.php" method="POST" id="formulario" autocomplete="off">
+                    <form action="../../../Usuario/Perfil/Acciones/Editar.php" method="POST" id="formulario" autocomplete="off">
                         <label for="Nombre">Nombre: </label>
                         <input type="text" name="nombre" id="nombre" autofocus value="<?php echo $fila['Nombre']?>">
                         <br><br>
@@ -59,7 +59,7 @@
                         <input type="text" name="apellido2" id="apellido2" value="<?php echo $fila['Apellido2']?>">
                         <br><br>
                         <label for="DNI">DNI: </label>
-                        <input type="text" name="dni" id="dni" value="<?php echo $fila['DNI']?>">
+                        <input type="text" name="dni" id="dni" value="<?php echo $fila['DNI']?>" readonly>
                         <br><br>
                         <label for="Usuario">Usuario: </label>
                         <input type="text" name="usuario" id="usuario" value="<?php echo $fila['Usuario']?>">
@@ -103,6 +103,7 @@
                         ?>
                         <br><br>
                         <input type="hidden" name="pagina" value="administracion">
+                        <input type="hidden" name="idUsuario" value="<?php echo $fila['DNI'] ?>">
                         <input type="submit" value="Editar usuario" class="botonFormulario">
                     </form>
                     <?php
@@ -118,6 +119,6 @@
             <div><a href="../../../Contacto.php">Contacto</a></div>
             <div><a href="../../../SitioWeb.php">Sitio Web</a></div>
         </footer>
-        <script src="../../../JS/EditarUsuario.js"></script>
+        <script src="../../../JS/Editar.js"></script>
 </body>
 </html>

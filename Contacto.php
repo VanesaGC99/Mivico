@@ -74,10 +74,10 @@
                         <br>
                         <label>Asunto: </label>
                         <select name="asunto">
-                            <option value="seleccion">Selecciona una opcion</option>
-                            <option value="atencionCliente">Atencion al cliente</option>
-                            <option value="problema">Problema</option>
-                            <option value="otro">Otro</option>
+                            <option value="Sin asunto">Selecciona una opcion</option>
+                            <option value="AtencionCliente">Atencion al cliente</option>
+                            <option value="Problema">Problema</option>
+                            <option value="Otro">Otro</option>
                         </select>
                         <label>Contenido del email: </label><br>
                         <textarea name="contenido" rows="10" style= "width: 100%;"></textarea>

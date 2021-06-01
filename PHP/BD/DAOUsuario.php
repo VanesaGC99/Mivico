@@ -33,54 +33,38 @@
     }
 
     //Modificar usuario
-    function modificarUsuario($conexion, $dni, $nombre, $apellido1, $apellido2, $usuario, $password, $email, $telefono, $direccion, $codigoP, $provincia, $comunidadA){
+    function modificarUsuario($conexion, $dni, $nombre, $apellido1, $apellido2, $usuario, $password, $email, $telefono, $direccion, $codigoP, $provincia, $comunidadA, $rol, $idUsuario){
+        $modificar = "Update Usuario Set DNI = '$dni', Nombre = '$nombre', Apellido1 = '$apellido1', Apellido2 = '$apellido2', Usuario = '$usuario', Password = '$password', 
+        Email = '$email', Telefono = '$telefono', Dirección = '$direccion', CP = '$codigoP', Provincia ='$provincia', ComunidadAutonoma = '$comunidadA',
+        Rol = '$rol' where DNI = '$idUsuario'";
         
-        if($nombre != ""){
-            $update = "Update Usuario set Nombre = '$nombre' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
+        $query = mysqli_query($conexion, $modificar);
 
-        }else if($apellido1 != ""){
-            $update = "Update Usuario set Apellido1 = '$apellido1' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($apellido2 != ""){
-            $update = "Update Usuario set Apellido2 = '$apellido2' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($usuario != ""){
-            $update = "Update Usuario set Usuario = '$usuario' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($password != ""){
-            $update = "Update Usuario set Password = '$password' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($email != ""){
-            $update = "Update Usuario set Email = '$email' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($telefono != ""){
-            $update = "Update Usuario set Telefono = '$telefono' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($codigoP != ""){
-            $update = "Update Usuario set CP = '$codigoP' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($provincia != ""){
-            $update = "Update Usuario set Provincia = '$provincia' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else if($comunidadA != ""){
-            $update = "Update Usuario set ComunidadAutonoma = '$comunidadA' where DNI = '$dni'";
-            $query = mysqli_query($conexion,$update);
-
-        }else{
-            return false;
-        }
+        actualizacionSesion($dni, $nombre, $apellido1, $apellido2, $usuario, $password, $email, $telefono, $direccion, $codigoP, $provincia, $comunidadA, $rol);
+        
         return $query;
+        
     }
 
+    //Actualizacion de SESSION
+    function actualizacionSesion($dni, $nombre, $apellido1, $apellido2, $usuario, $password, $email, $telefono, $direccion, $codigoP, $provincia, $comunidadA, $rol){
+        session_id($dni);
+        session_start();
+
+        $_SESSION['DNI'] = $dni;
+        $_SESSION['Nombre'] = $nombre;
+        $_SESSION['Apellido1'] = $apellido1;
+        $_SESSION['Apellido2'] = $apellido2;
+        $_SESSION['Usuario'] = $usuario;
+        $_SESSION['Password'] = $password;
+        $_SESSION['Email'] = $email;
+        $_SESSION['Telefono'] = $telefono;
+        $_SESSION['Dirección'] = $direccion;
+        $_SESSION['CP'] = $codigoP;
+        $_SESSION['Provincia'] = $provincia;
+        $_SESSION['ComunidadAutonoma'] = $comunidadA;
+        $_SESSION['Rol'] = $rol;
+    }
     //Buscar usuario por DNI
     function buscarDNI($conexion, $dni){
         $buscar = "Select * from Usuario where DNI = '$dni'";

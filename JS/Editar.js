@@ -40,6 +40,7 @@ const validado = {
     telefono: false,
     provincia: false,
     comunidadAutonoma: false,
+    direccion:false,
 
     titulo: false,
     compañia: false,
