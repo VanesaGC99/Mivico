@@ -60,7 +60,7 @@
                         <input type="file" name="imagen">
                         <br><br>
                         <label for="Descripcion">Descripcion: </label>
-                        <input type="text" name="descripcion" id="richText" class="sinEstilos">
+                        <input type="text" name="descripcion" id="richText">
                         <br><br>
                         <input type="submit" value="Añadir usuario" class="botonFormulario" name="boton">
                     </form>

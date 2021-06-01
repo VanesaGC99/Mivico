@@ -12,6 +12,6 @@ $(document).ready(function(){
         urls: false,
         table: false,
         removeStyles: false,
-        code: false,
+        code: false, 
     });
 });
