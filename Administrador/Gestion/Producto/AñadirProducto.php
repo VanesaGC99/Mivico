@@ -57,7 +57,7 @@
                         <input type="text" name="stock" id="stock">
                         <br><br>
                         <label for="Imagen">Imagen: </label>
-                        <input type="file" name="imagen">
+                        <input type="file" name="imagen" id= "imagen">
                         <br><br>
                         <label for="Descripcion">Descripcion: </label>
                         <input type="text" name="descripcion" id="richText">

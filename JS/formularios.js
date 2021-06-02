@@ -14,16 +14,11 @@ const expresiones ={
     telefono:/^(6|7)[0-9]{8}$/,
     direccion:/^[A-Za-zÁ-ÿ0-9\s\/]{2,150}$/,
     
-    titulo: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
-    compañia: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
-    Publicacion: /^\d{4}\-\d{2}\-\d{2}$/,
-    descripcion: /^[A-Za-zÁ-ÿ\s]{2,1000}$/,
-    imagen: /^[A-Za-zÁ-ÿ0-9\s\.]{2,45}$/,
-
-    lanzamiento: /^\d{4}\-\d{2}\-\d{2}$/, 
-    logo: /^[A-Za-zÁ-ÿ0-9\s\.]{2,45}$/,
-    precio: /^\d{1,5}\,\d{2}$/,
-    stock: /^\d{2,200}$/,
+    nombreProducto: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
+    tipo: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
+    descripcion:/^[A-Za-zÁ-ÿ0-9\s\/]{2,1000}$/,
+    precio:/^\d*\.?\d*$/,
+    stock: /^[0-9]{2}$/,
 }
 
 //Constante para saber si se ha validado correctamente el formulario
@@ -39,10 +34,19 @@ const validado = {
     codigoP: false,
     telefono: false,
     provincia: false,
-    comunidadA: false,
+    comunidadAutonoma: false,
     direccion:false,
-}
 
+    nombreProducto: false,
+    tipo: false,
+    descripcion:false,
+    precio:false,
+    stock: false,
+    imagen: false,
+}
+//campos pulsados 
+
+let camposvalidados = 0;
 //codigo postal de cada provincia
 const codigopostal = {
     01: "\u00C1lava", 02: "Albacete", 03: "Alicante", 04: "Almer\u00EDa", 05: "\u00C1vila", 06: "Badajoz", 07: "Baleares", 08: "Barcelona", 09: "Burgos", 10: "C\u00E1ceres",
@@ -66,6 +70,7 @@ const autonomias = {
 //Funcion tipo flecha para validar cada input según su nombre
 const validarFormulario = (e) =>{
     switch (e.target.name){
+        //Usuarios
         case "nombre":
             validarCampo(expresiones.nombre, nombre.value, 'nombre');
         break;
@@ -99,33 +104,31 @@ const validarFormulario = (e) =>{
         case "telefono":
             validarCampo(expresiones.telefono, telefono.value, 'telefono');
         break;
+        case "email":
+            validarCampo(expresiones.email, email.value, 'email');
+        break;
         case "direccion":
             validarCampo(expresiones.direccion, direccion.value, 'direccion');
         break;
 
-
-        case "titulo":
-            validarCampo(expresiones.titulo, titulo.value, 'titulo');
+        //Productos
+        case "nombreProducto":
+            validarCampo(expresiones.nombre, nombre.value, 'nombre');
         break;
-        case "compañia":
-            validarCampo(expresiones.compañia, compañia.value, 'compañia');
-        break;
-        case "publicacion":
-            validarCampo(expresiones.Publicacion, publicacion.value, 'publicacion');
-        break;
-        
-
-        case "lanzamiento":
-            validarCampo(expresiones.lanzamiento, lanzamiento.value, 'lanzamiento');
-        break;
-        case "logo":
-            validarCampo(expresiones.logo, logo.value, 'logo');
+        case "tipo":
+            validarCampo(expresiones.tipo, tipo.value, 'tipo');
         break;
         case "precio":
             validarCampo(expresiones.precio, precio.value, 'precio');
         break;
         case "stock":
             validarCampo(expresiones.stock, stock.value, 'stock');
+        break;
+        case "imagen":
+            validarImagen();
+        break;
+        case "descripcion":
+            validarCampo(expresiones.descripcion, descripcion.value, 'descripcion');
         break;
     }
 }
@@ -167,6 +170,7 @@ function comprobarDNI(dni, mensaje){
     let num= dni.substring(0,8);
     let letrasDNI=['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
     let letraCorrecta = letrasDNI[num%23];
+    let error = document.getElementById(mensaje);
 
     if(letra == letraCorrecta){
         document.getElementById("dni").style.border="green 2px solid";
@@ -186,6 +190,7 @@ function validarProvincia(){
 
     provincia.value = inicialesCodigoP;
     validado.provincia = true;
+    
 }
 
 function validarComunidad(){
@@ -205,12 +210,28 @@ function validarComunidad(){
         comunidadA.value = autonomias.LaRioja;
         validado.comunidadA = true;
     }
-    else{
+    else if(provincia.value != "Las Palmas" && provincia.value != "Ciudad Real" && provincia.value != "La Rioja" ){
         comunidadA.value = autonomias[valor];
         validado.comunidadA = true;
     }
+    else{
+        console.log("no funciona");
+    }
 
 }
+
+//Funcion para validar si hay o no imagen
+function validarImagen(){
+    let img = document.getElementById("imagen").value;
+    if(img != ""){
+        validado['imagen'] = true;
+        document.getElementById(campoValidar).style.border="green 2px solid";
+    }
+    else{
+        document.getElementById("dni").style.border="red 2px solid";
+    }
+}
+
 //Foreach de inputs para que los elementos contengan un oyente de eventos
 inputs.forEach((input) =>{
     input.addEventListener('keyup', validarFormulario);
@@ -221,24 +242,28 @@ inputs.forEach((input) =>{
 //Oyente de eventos para cuando le de al botón Enviar 
 formulario.addEventListener('submit', (e) =>{
     e.preventDefault();
-
-    let campos = inputs.length -2;
+    let campos = 0;
     let validar= 0;
 
+    if(inputs.length == 7){
+        campos = inputs.length -2;
+    }else if(inputs.length == 3){
+        campos = inputs.length -1;
+    }else{
+        campos = inputs.length -3;
+    }
+    
     for(let i = 0; i < inputs.length; i++){
         if(validado[inputs[i].name]){
-            console.log
             validar++;
         }
     }
 
-    if(campos==validar){
+    if(validar == campos){
         console.log("los campos a validar y los campos validados son iguales");
         formulario.submit();
     }   
     else{
-        console.log("no son iguales");
-        console.log(campos+" == " +validar)
-    
+        console.log("no son iguales: "+validar+ "=="+campos);
     }
 })

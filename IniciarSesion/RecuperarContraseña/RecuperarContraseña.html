@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/estilos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.goolgeapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <title>Mivico</title>
+</head>
+<body>
+    <header>
+        <img src="../../IMAGE/imagenCorporativa.png" alt="Imagen inicio" class="imagenInicio">
+    </header>
+    <nav>
+        <div class="navegacion_categoria">
+            <div><a href="../../">Inicio</a></div>
+        </div>
+    </nav>
+    <section class="centrarContenido">
+        <div class="formulario">
+            <div>
+                <h1>Registrarse</h1>
+            </div>
+            <hr>
+            <div>
+                <form action="RecuperarContraseña.php" method="POST" id="formulario" autocomplete="off">
+                    <p>Ingresa el correo electronico de tu cuenta para recuperar tu contraseña: </p>
+                    <input type="email" name="email" id="email">
+                    <br><br>
+                    <input type="submit" value="Registrarse" class="botonFormulario">
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div><a href="../../Nosotros.php">Nosotros</a></div>
+        <div><a href="../../Contacto.php">Contacto</a></div>
+        <div><a href="../../SitioWeb.php">Sitio Web</a></div>
+    </footer>
+    <script src="../../JS/formularios.js"></script>
+</body>
+</html>

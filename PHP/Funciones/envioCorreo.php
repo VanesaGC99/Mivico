@@ -7,4 +7,6 @@
     $headers = "From: $correoCliente ";
 
     mail($correoMivico, $asunto, $mensaje, $headers);
+
+    header('Location: ../../Contacto.php');
 ?>

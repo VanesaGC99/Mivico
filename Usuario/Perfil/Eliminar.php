@@ -50,7 +50,15 @@
                     <h2 class = "inicioH2 tituloPerfil">Eliminar</h2>
                     <hr>
                     <br>
-                    
+                    <p id="mensaje">¿Desea eliminar su cuenta en Mivico?</p>
+                    <div>
+                        <p>
+                            Al realizar esta acción los cambios serán permanentes, no podrá recuperar su cuenta
+                            después de realizar esta acción.
+                        </p>
+                        <p>¿Esta seguro/a?</p>
+                        <button class="aparienciaBoton" onclick="location.href='Acciones/Eliminar.php'">Eliminar cuenta</buton>
+                    </div>
                 </div>
             </div>
         </section>
@@ -59,5 +67,16 @@
             <div><a href="../../Contacto.php">Contacto</a></div>
             <div><a href="../../SitioWeb.php">Sitio Web</a></div>
         </footer>
+        <script>
+            $('#mensaje').click(function(){
+                var x = document.getElementById("mostrarComentarios");
+
+                if(x.style.display === "none"){
+                    x.style.display = "block";
+                }else{
+                    x.style.display = "none";
+                }
+            });
+        </script>
 </body>
 </html>

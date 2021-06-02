@@ -37,7 +37,7 @@
         
         if($insertar){
             if($_POST['pagina']=="registro"){
-                header("Location:../IniciarSesion.php");
+                header("Location:../IniciarSesion.html");
             }
             else if ($_POST['pagina'] == "administracion"){
                 header("Location:../../Administrador/Gestion/GestionUsuario.php");

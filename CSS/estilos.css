@@ -566,4 +566,7 @@ le cambia el color a la letra y la pone centrada*/
     .carritoImagen{
         width: 0%;
     }
+    .formulario{
+        width: 90%;
+    }
 }
