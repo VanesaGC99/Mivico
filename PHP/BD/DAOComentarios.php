@@ -25,5 +25,38 @@
         return $query;
     }
 
-    //
+    //Modificar un comentario
+    function modificarComentario($conexion, $id, $contenido, $fecha){
+        $modificar = "Update Comentario set Contenido = '$contenido', fechaComentario='$fecha' where idComentario ='$id'";
+
+        $query =mysqli_query($conexion, $modificar);
+
+        return $query;
+    }
+    //eliminar el comentario
+    function eliminarComentario($conexion, $id){
+        $comentario = "Delete from Comentario where idComentario = '$id'";
+        
+        $query = mysqli_query($conexion, $comentario);
+
+        return $query;
+    }
+
+    //Eliminar los comentarios con la ip de un producto
+    function eliminarProductoComentario($conexion, $id){
+        $comentario = "Delete from Comentario where idProducto = '$id'";
+
+        $query = mysqli_query($conexion, $comentario);
+
+        return $query;
+    }
+
+    //Busca un comentario segun la ip
+    function buscarID($conexion, $id){
+        $comentario = "Select * from Comentario where idComentario = '$id'";
+
+        $query = mysqli_query($conexion, $comentario);
+
+        return $query;
+    }
 ?>

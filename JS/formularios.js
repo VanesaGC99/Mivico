@@ -58,7 +58,7 @@ const codigopostal = {
 }
 
 const autonomias = {
-    Almer\u00EDa: "Andalucía", C\u00E1diz: "Andalucía", C\u00F3rdoba: "Andalucía", Granada: "Andalucía", Huelva: "Andalucía", Ja\u00E9n: "Andalucía", M\u00E1laga: "Adalucía", Sevilla: "Andalucía", 
+    Almer\u00EDa: "Andalucía", C\u00E1diz: "Andalucía", C\u00F3rdoba: "Andalucía", Granada: "Andalucía", Huelva: "Andalucía", Ja\u00E9n: "Andalucía", M\u00E1laga: "Andalucía", Sevilla: "Andalucía", 
     Huesca: "Aragón", Teruel: "Aragón", Zaragoza: "Aragón", Asturias: "Asturias", Baleares: "Islas Baleares", LasPalmas: "Islas Canarias", Tenerife: "Islas Canarias", Cantabria: "Cantabria",
     Ávila: "Castilla y León", Burgos: "Castilla y León", León: "Castilla y León", Palencia: "Castilla y León",Salamanca: "Castilla y León", Segovia: "Castilla y León", 
     Soria: "Castilla y León", Valladolid: "Castilla y León", Zamora: "Castilla y León", Albacete: "Castilla-La Mancha", CiudadReal: "Castilla-La Mancha", Cuenca:"Castilla-La Mancha",

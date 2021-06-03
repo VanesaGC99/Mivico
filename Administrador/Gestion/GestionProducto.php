@@ -2,7 +2,7 @@
     session_start();
 
     if(empty($_SESSION['Rol'] == 'Administrador' || $_SESSION['Rol'] == 'administrador')){
-        header("Location: ../../IniciarSesion/IniciarSesion.html");
+        header("Location: ../../../IniciarSesion/IniciarSesion.html");
     }
 
     require '../../PHP/ConectarBD.php';
@@ -59,9 +59,9 @@
                                         <td><?php echo $fila['Nombre']?></td>
                                         <td><?php echo $fila['Tipo']?></td>
                                         <td><?php echo $fila['Stock']?></td>
-                                        <td><a href="../../Producto/Descripcion.php?id=<?php echo $fila['idProducto']?>">Ver</a></td>
-                                        <td><a href="Producto/Editar.php">Editar</a></td>
-                                        <td><a href="PRoducto/Eliminar.php">Eliminar</a></td>
+                                        <td><a href="Producto/verProducto.php?id=<?php echo $fila['idProducto']?>">Ver</a></td>
+                                        <td><a href="Producto/EditarProducto.php?id=<?php echo $fila['idProducto']?>">Editar</a></td>
+                                        <td><a href="Producto/EliminarProducto.php?id=<?php echo $fila['idProducto']?>">Eliminar</a></td>
                                     </tr>
                                 <?php
                             }

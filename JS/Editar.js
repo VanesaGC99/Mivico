@@ -14,16 +14,11 @@ const expresiones ={
     telefono:/^(6|7)[0-9]{8}$/,
     direccion:/^[A-Za-zÁ-ÿ0-9\s\/]{2,150}$/,
     
-    titulo: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
-    compañia: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
-    Publicacion: /^\d{4}\-\d{2}\-\d{2}$/,
-    descripcion: /^[A-Za-zÁ-ÿ\s]{2,1000}$/,
-    imagen: /^[A-Za-zÁ-ÿ0-9\s\.]{2,45}$/,
-
-    lanzamiento: /^\d{4}\-\d{2}\-\d{2}$/, 
-    logo: /^[A-Za-zÁ-ÿ0-9\s\.]{2,45}$/,
-    precio: /^\d{1,5}\,\d{2}$/,
-    stock: /^\d{2,200}$/,
+    nombreProducto: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
+    tipo: /^[A-Za-zÁ-ÿ\s]{2,45}$/,
+    descripcion:/^[A-Za-zÁ-ÿ0-9\s\/]{2,1000}$/,
+    precio:/^\d*\.?\d*$/,
+    stock: /^[0-9]{2}$/,
 }
 
 //Constante para saber si se ha validado correctamente el formulario
@@ -42,17 +37,12 @@ const validado = {
     comunidadAutonoma: false,
     direccion:false,
 
-    titulo: false,
-    compañia: false,
-    publicacion:false,
+    nombreProducto: false,
+    tipo: false,
     descripcion:false,
-    imagen: false,
-
-    lanzamiento: false,
-    logo:false,
     precio:false,
-    stock:false,
-
+    stock: false,
+    imagen: false,
 }
 //campos pulsados 
 
@@ -68,7 +58,7 @@ const codigopostal = {
 }
 
 const autonomias = {
-    Almer\u00EDa: "Andalucía", C\u00E1diz: "Andalucía", C\u00F3rdoba: "Andalucía", Granada: "Andalucía", Huelva: "Andalucía", Ja\u00E9n: "Andalucía", M\u00E1laga: "Adalucía", Sevilla: "Andalucía", 
+    Almer\u00EDa: "Andalucía", C\u00E1diz: "Andalucía", C\u00F3rdoba: "Andalucía", Granada: "Andalucía", Huelva: "Andalucía", Ja\u00E9n: "Andalucía", M\u00E1laga: "Andalucía", Sevilla: "Andalucía", 
     Huesca: "Aragón", Teruel: "Aragón", Zaragoza: "Aragón", Asturias: "Asturias", Baleares: "Islas Baleares", LasPalmas: "Islas Canarias", Tenerife: "Islas Canarias", Cantabria: "Cantabria",
     Ávila: "Castilla y León", Burgos: "Castilla y León", León: "Castilla y León", Palencia: "Castilla y León",Salamanca: "Castilla y León", Segovia: "Castilla y León", 
     Soria: "Castilla y León", Valladolid: "Castilla y León", Zamora: "Castilla y León", Albacete: "Castilla-La Mancha", CiudadReal: "Castilla-La Mancha", Cuenca:"Castilla-La Mancha",
@@ -80,6 +70,7 @@ const autonomias = {
 //Funcion tipo flecha para validar cada input según su nombre
 const validarFormulario = (e) =>{
     switch (e.target.name){
+        //Usuarios
         case "nombre":
             validarCampo(expresiones.nombre, nombre.value, 'nombre');
         break;
@@ -120,29 +111,24 @@ const validarFormulario = (e) =>{
             validarCampo(expresiones.direccion, direccion.value, 'direccion');
         break;
 
-
-        case "titulo":
-            validarCampo(expresiones.titulo, titulo.value, 'titulo');
+        //Productos
+        case "nombreProducto":
+            validarCampo(expresiones.nombre, nombre.value, 'nombre');
         break;
-        case "compañia":
-            validarCampo(expresiones.compañia, compañia.value, 'compañia');
-        break;
-        case "publicacion":
-            validarCampo(expresiones.Publicacion, publicacion.value, 'publicacion');
-        break;
-        
-
-        case "lanzamiento":
-            validarCampo(expresiones.lanzamiento, lanzamiento.value, 'lanzamiento');
-        break;
-        case "logo":
-            validarCampo(expresiones.logo, logo.value, 'logo');
+        case "tipo":
+            validarCampo(expresiones.tipo, tipo.value, 'tipo');
         break;
         case "precio":
             validarCampo(expresiones.precio, precio.value, 'precio');
         break;
         case "stock":
             validarCampo(expresiones.stock, stock.value, 'stock');
+        break;
+        case "imagen":
+            validarImagen();
+        break;
+        case "descripcion":
+            validarCampo(expresiones.descripcion, descripcion.value, 'descripcion');
         break;
     }
 }
@@ -202,13 +188,9 @@ function validarProvincia(){
     let codigo = document.getElementById("codigoP").value;
     let inicialesCodigoP = codigopostal[parseInt(codigo.substring(0,2))];
 
-    if(inicialesCodigoP == ""){
-        provincia.value = "";
-    }
-    else{
     provincia.value = inicialesCodigoP;
     validado.provincia = true;
-    }
+    
 }
 
 function validarComunidad(){
@@ -228,11 +210,26 @@ function validarComunidad(){
         comunidadA.value = autonomias.LaRioja;
         validado.comunidadA = true;
     }
-    else{
+    else if(provincia.value != "Las Palmas" && provincia.value != "Ciudad Real" && provincia.value != "La Rioja" ){
         comunidadA.value = autonomias[valor];
         validado.comunidadA = true;
     }
+    else{
+        console.log("no funciona");
+    }
 
+}
+
+//Funcion para validar si hay o no imagen
+function validarImagen(){
+    let img = document.getElementById("imagen").value;
+    if(img != ""){
+        validado['imagen'] = true;
+        document.getElementById(campoValidar).style.border="green 2px solid";
+    }
+    else{
+        document.getElementById("dni").style.border="red 2px solid";
+    }
 }
 //Foreach de inputs para que los elementos contengan un oyente de eventos
 inputs.forEach((input) =>{

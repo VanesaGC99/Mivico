@@ -38,4 +38,13 @@
 
         return $query;
     }
+
+    function eliminarProductoLike($conexion, $id){
+
+        $eliminar = "Delete from Likes Where idProducto = '$id'";
+        
+        $query = mysqli_query($conexion, $eliminar);
+
+        return $query;
+    }
 ?>

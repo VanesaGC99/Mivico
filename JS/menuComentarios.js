@@ -1,14 +1,5 @@
 $(document).ready(function(){
 
-    $('.verComentario').click(function(){
-        var x = document.getElementById("mostrarComentarios");
-
-        if(x.style.display === "none"){
-            x.style.display = "block";
-        }else{
-            x.style.display = "none";
-        }
-    });
     //Botón de acción del acordeón
     $('.botonMenu').click(function(){
         

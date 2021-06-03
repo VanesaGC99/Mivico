@@ -6,10 +6,10 @@
     }
 
     require '../../../PHP/ConectarBD.php';
-    require '../../../PHP/BD/DAOUsuario.php';
+    require '../../../PHP/BD/DAOComentarios.php';
     $conexion = conectar();
 
-    $dni = $_GET['dni'];
+    $id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,12 +36,12 @@
     </nav>
     <section>
             <div class="apariencia">
-                <p><a href="../menuGestion.php">Menú gestión</a><strong>/</strong><a href="../GestionUsuario.php">Gestión usuario</a><strong>/</strong><a href="">Ver usuario</a></p>
+                <p><a href="../menuGestion.php">Menú gestión</a><strong>/</strong><a href="../GestionComentario.php">Gestión comentario</a><strong>/</strong><a href="">Ver comentario</a></p>
                 <br><br>
                 <div class="verUsuario">
                 
                     <?php
-                        $buscar =buscarDNI($conexion, $dni);
+                        $buscar = buscarID($conexion, $id);
 
                         $fila = mysqli_fetch_assoc($buscar);
 

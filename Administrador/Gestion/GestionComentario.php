@@ -92,9 +92,8 @@
                                     ?>
                                     <td><?php echo $fila['fechaComentario']?></td>
                                     <td><?php echo $miniComentario?></td>
-                                    <td><a href="Comentario/verComentario.php">Ver</a></td>
-                                    <td><a href="Comentario/Editar.php">Editar</a></td>
-                                    <td><a href="Comentario/Eliminar.php">Eliminar</a></td>
+                                    <td><a href="Comentario/verComentario.php?id=<?php echo $fila['idComentario'];?>">Ver</a></td>
+                                    <td><a href="Comentario/eliminarComentario.php?id=<?php echo $fila['idComentario'];?>">Eliminar</a></td>
                                 </tr>
                             <?php
                         }

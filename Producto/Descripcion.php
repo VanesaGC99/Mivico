@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.goolgeapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../JS/jquery.min.js"></script>
     <title>Mivico</title>
 </head>
 <body>
@@ -127,49 +128,42 @@
                         ?>
                         
                             <div class="comentario">
-                                <div>
-                                <button class="verComentario">Ver comentarios</button>
-                                <br>
-                                    <div id="mostrarComentarios" style="display:none">
+                                    <div id="mostrarComentarios">
                                     <?php
                                         //Mostrar comentarios
 
+                                        $comentarios = mostrarComentarios($conexion, $id);
+
+                                        while($comentario = mysqli_fetch_array($comentarios)){
+
+                                            $nombreUsuario = buscarDNI($conexion, $comentario['DNI']);
                                             
-                                            $comentarios = mostrarComentarios($conexion);
+                                            $nombre = mysqli_fetch_assoc($nombreUsuario);
+                                        ?>
+                                        <div>
 
-                                            while($comentario = mysqli_fetch_array($comentarios)){
+                                            <div class="texto">
+                                            <p><strong><?php echo $nombre['Usuario']; ?></strong></p>
+                                            <p><?php echo $comentario['fechaComentario']; ?></p>
+                                            <p><?php echo $comentario['Contenido']; ?></p>
+                                            </div>
 
-                                                $nombreUsuario = buscarDNI($conexion, $comentario['DNI']);
-                                                
-                                                $nombre = mysqli_fetch_assoc($nombreUsuario);
-                                            ?>
-                                            <div>
-
-                                                <div class="texto">
-                                                <p><strong><?php echo $nombre['Usuario']; ?></strong></p>
-                                                <p><?php echo $comentario['fechaComentario']; ?></p>
-                                                <p><?php echo $comentario['Contenido']; ?></p>
+                                            <!-- Menu de opciones para los comentarios -->
+                                            <div class="Menu">
+                                                <div class="titulo botonMenu">
+                                                <p>Opciones</p>
                                                 </div>
-
-                                                <!-- Menu de opciones para los comentarios -->
-                                                <div class="Menu">
-                                                    <div class="titulo botonMenu">
-                                                    <p>Opciones</p>
-                                                    </div>
-                                                    <div class="contenidoMenu">
-                                                        <ul>
-                                                            <li><a href="Comentario/ModificarComentario.php">Modificar</a></li>
-                                                            <li><a href="Comentario/EliminarComentario.php">Eliminar</a></li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="contenidoMenu">
+                                                    <ul>
+                                                        <li><a href="Comentarios/Modificar.php?id=<?php echo $comentario['idComentario'];?>">Modificar</a></li>
+                                                        <li><a href="Comentarios/Eliminar.php?id=<?php echo $comentario['idComentario'];?>">Eliminar</a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <?php
-                                            
-                                            }
-                                        
-                                    ?>
-                                    </div>
+                                        </div>
+                                        <?php
+                                        }
+                                        ?>
                                 </div>
                             </div>
                         </div>
@@ -190,6 +184,17 @@
         <div><a href="../Contacto.php">Contacto</a></div>
         <div><a href="../SitioWeb.php">Sitio Web</a></div>
     </footer>
-    <script type='text/javascript' src="../JS/menuComentario.js"></script>
+    <script>
+        $('.verComentario').click(function(){
+            var x = document.getElementById("mostrarComentarios");
+
+            if(x.style.display === "none"){
+                x.style.display = "block";
+            }else{
+                x.style.display = "none";
+            }
+        });
+    </script>
+    <script type="text/javascript" src="../JS/menuComentarios.js"></script>
 </body>
 </html>

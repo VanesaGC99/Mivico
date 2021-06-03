@@ -495,8 +495,21 @@ le cambia el color a la letra y la pone centrada*/
 .carritoImagen{
     width: 20%;
 }
+/*Cambiar el color de la descripccion*/
+.descripcion div div span{
+    color: rgb(78, 49, 40);
+}
 
+/*Cuando el cursor pase se ponga pointer y verde*/
+#mensaje:hover{
+    color:green;
+    cursor:pointer;
+}
 
+.verUsuario{
+    width: 40%;
+    margin: auto;
+}
 /*Cambio de estilos para pantallas menores de 992 pixeles*/
 @media only screen and (max-width: 992px){
     html{

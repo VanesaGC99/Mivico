@@ -28,8 +28,12 @@
     }
 
     //Eliminar usuario
-    function eliminarUsuario(){
+    function eliminarUsuario($conexion, $dni){
+        $borrar = "Delete from Usuario Where DNI ='$dni'";
 
+        $query = mysqli_query($conexion, $borrar);
+
+        return $query;
     }
 
     //Modificar usuario

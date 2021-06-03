@@ -53,7 +53,7 @@
                             $lista = listarUsuarios($conexion);
 
                             while($fila = mysqli_fetch_array($lista)){
-                                ?>
+                        ?>
                                     <tr>
                                         <td><?php echo $fila['DNI']?></td>
                                         <td><?php echo $fila['Usuario']?></td>
@@ -61,9 +61,9 @@
                                         <td><?php echo $fila['Rol']?></td>
                                         <td><a href="Usuario/verUsuario.php?dni=<?php echo $fila['DNI']?>">Ver</a></td>
                                         <td><a href="Usuario/EditarUsuario.php?dni=<?php echo $fila['DNI']?>">Editar</a></td>
-                                        <td><a href="Usuario/Eliminar.php?dni=<?php echo $fila['DNI']?>">Eliminar</a></td>
+                                        <td><a href="Usuario/EliminarUsuario.php?dni=<?php echo $fila['DNI']?>">Eliminar</a></td>
                                     </tr>
-                                <?php
+                        <?php
                             }
                         ?>
                         </table>

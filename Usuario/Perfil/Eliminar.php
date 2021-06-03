@@ -50,14 +50,18 @@
                     <h2 class = "inicioH2 tituloPerfil">Eliminar</h2>
                     <hr>
                     <br>
-                    <p id="mensaje">¿Desea eliminar su cuenta en Mivico?</p>
-                    <div>
+                    <p id="mensaje"><strong>¿Desea eliminar su cuenta en Mivico?</strong></p>
+                    <div id="confirmacion" style= "display:none;">
                         <p>
                             Al realizar esta acción los cambios serán permanentes, no podrá recuperar su cuenta
                             después de realizar esta acción.
                         </p>
                         <p>¿Esta seguro/a?</p>
-                        <button class="aparienciaBoton" onclick="location.href='Acciones/Eliminar.php'">Eliminar cuenta</buton>
+                        <form action="Acciones/Eliminar.php" method="POST">
+                            <input type="hidden" name="dni" value="<?php echo $_SESSION['DNI']; ?>">
+                            <input type="hidden" name="pagina" value="eliminar">
+                            <button class="aparienciaBoton" onclick="location.href='Acciones/Eliminar.php'">Eliminar cuenta</buton>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -69,7 +73,7 @@
         </footer>
         <script>
             $('#mensaje').click(function(){
-                var x = document.getElementById("mostrarComentarios");
+                var x = document.getElementById("confirmacion");
 
                 if(x.style.display === "none"){
                     x.style.display = "block";

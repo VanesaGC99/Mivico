@@ -38,12 +38,20 @@
         return $query;
     }
 
-    function eliminarProducto(){
+    function eliminarProducto($conexion,  $id){
+        $eliminar = "Delete from Producto where idProducto = '$id'";
 
+        $query = mysqli_query($conexion, $eliminar);
+
+        return $query;
     }
 
-    function modificarProducto(){
+    function modificarProducto($conexion, $id, $nombre, $tipo, $precio, $stock, $imagen, $descripcion){
+        $update = "Update Producto set Nombre= '$nombre', Tipo = '$tipo', Precio = '$precio', Stock = $stock, Imagen = '$imagen', Descripcion = '$descripcion' where idProducto = '$id'";
+        
+        $query = mysqli_query($conexion, $update);
 
+        return $query;
     }
 
     //Buscar un producto por su id
